@@ -1,0 +1,167 @@
+@import "variables";
+
+header{
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	padding: 12px 0px;
+	background: #fff;
+	border-bottom: 1px solid #ebebeb;
+	box-sizing: border-box;
+
+	&:after{
+		content: "";
+		height: 0;
+		width: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	.left{
+		float: left;
+		margin-left: 31px;
+		p{
+			display: inline-block;
+			font-weight: 700;
+			color: #313131;
+			font-size: @font-size_12px;
+			margin-left: 5px;
+			vertical-align: middle;
+			text-transform: uppercase;
+			letter-spacing: 12*200/1000px;
+		}
+		.c-hamburger {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			width: 32px;
+			height: 32px;
+			font-size: 0;
+			text-indent: -9999px;
+			appearance: none;
+			box-shadow: none;
+			border-radius: none;
+			border: 1px solid #151515;
+			cursor: pointer;
+			transition: background 0.3s;
+			box-sizing: border-box;
+		}
+
+		.c-hamburger:focus {
+			outline: none;
+		}
+		.c-hamburger span {
+			display: block;
+			position: absolute;
+			top: 13px;
+			left: 5px;
+			right: 5px;
+			height: 3px;
+			background: #222222;
+		}
+
+		.c-hamburger span::before,
+		.c-hamburger span::after {
+			position: absolute;
+			display: block;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: #222222;
+			content: "";
+		}
+
+		.c-hamburger span::before {
+			top: -7px;
+		}
+
+		.c-hamburger span::after {
+			bottom: -7px;
+		}
+		.c-hamburger--htx {
+		  background-color: transparent;
+		}
+
+		.c-hamburger--htx span {
+		  transition: background 0s 0.3s;
+		}
+
+		.c-hamburger--htx span::before,
+		.c-hamburger--htx span::after {
+		  transition-duration: 0.3s, 0.3s;
+		  transition-delay: 0.3s, 0s;
+		}
+
+		.c-hamburger--htx span::before {
+		  transition-property: top, transform;
+		}
+
+		.c-hamburger--htx span::after {
+		  transition-property: bottom, transform;
+		}
+
+		/* active state, i.e. menu open */
+		.c-hamburger--htx.is-active {
+		  background-color: transparent;
+		}
+
+		.c-hamburger--htx.is-active span {
+		  background: none;
+		}
+
+		.c-hamburger--htx.is-active span::before {
+		  top: 0;
+		  transform: rotate(45deg);
+		}
+
+		.c-hamburger--htx.is-active span::after {
+		  bottom: 0;
+		  transform: rotate(-45deg);
+		}
+
+		.c-hamburger--htx.is-active span::before,
+		.c-hamburger--htx.is-active span::after {
+		  transition-delay: 0s, 0.3s;
+		}
+	}
+	.center{
+		position: absolute;
+		width: 131px;
+		height: 35px;
+		top: 50%;
+		left: 50%;
+		margin-left: -131/2px;
+		margin-top: -35/2px;
+
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.right{
+		float: right;
+		margin-right: 31px;
+		span{
+			font-weight: 700;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 7px;
+			color: #313131;
+			font-size: @font-size_12px;
+			letter-spacing: 12*200/1000px;
+		}
+		.phone-icon{
+			display: inline-block;
+			vertical-align: middle;
+			width: 32px;
+			height: 32px;
+			background: url(../img/ui/phone-icon@2x.png) no-repeat center center;
+			background-size: 13px;
+			border: 1px solid #151515;
+			box-sizing: border-box;
+		}
+	}
+}	
+
