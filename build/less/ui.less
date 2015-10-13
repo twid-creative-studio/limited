@@ -237,8 +237,8 @@ button[type="submit"]{
   display: inline-block;
   vertical-align: middle;
   position: fixed;
-  z-index: 4;
-  top: 10px;
+  z-index: 5;
+  top: 11px;
   left: 30px;
   overflow: hidden;
   margin: 0;
@@ -252,7 +252,7 @@ button[type="submit"]{
   border-radius: none;
   border: 1px solid #151515;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
   box-sizing: border-box;
 
   &:hover{
@@ -316,6 +316,14 @@ button[type="submit"]{
 /* active state, i.e. menu open */
 .c-hamburger--htx.is-active {
   background-color: transparent;
+  border-color: #fff;
+
+  span{
+    &:after,
+    &:before{
+      background: #fff;
+    }
+  }
 }
 
 .c-hamburger--htx.is-active span {
