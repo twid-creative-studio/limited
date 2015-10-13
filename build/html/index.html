@@ -9,6 +9,9 @@
 
 <script>
 	$(document).ready(function () {
-		$('.full').outerHeight($(window).height());
+		$('.full').outerHeight($(window).height() - 57);
+	});
+	$(window).resize(function () {
+		$('.full').outerHeight($(window).height() - 57);
 	});
 </script>

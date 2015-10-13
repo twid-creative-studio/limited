@@ -14,11 +14,11 @@
 			<div class="logo"></div>
 		</span>
 	</div>
+	<button class="c-hamburger c-hamburger--htx">
+	  <span>Кнопа Меню</span>
+	</button>
 	<header>
 		<div class="left">
-			<button class="c-hamburger c-hamburger--htx">
-			  <span>Кнопа Меню</span>
-			</button>
 			<p>меню</p>
 		</div>
 		<div class="center"><a href="/" class="header-logo"><img src="img/logo-black@2x.png" alt=""></a></div>
@@ -41,6 +41,29 @@
 </footer>
 
 <div class="background-mask"></div>
+<div class="main-menu popup" id="main-menu">
+	<!-- <div class="close_win"></div> -->
+	<ul class="menu">
+		<li><a href="#">о магазине</a></li>
+		<li><a href="#">шоурум</a></li>
+		<li><a href="#">доставка/оплата</a></li>
+		<li><a href="#">скидки</a></li>
+		<li><a href="#">блог</a></li>
+		<li><a href="#">обмен/возврат</a></li>
+		<li><a href="#">гарантии</a></li>
+	</ul>
+	<ul class="social">
+		<li>
+			<a href="#" class="in"></a>
+		</li>
+		<li>
+			<a href="#" class="fb"></a>
+		</li>
+		<li>
+			<a href="#" class="vk"></a>
+		</li>
+	</ul>
+</div>
 
 <!--styles-->
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
@@ -58,6 +81,9 @@
 
 <script>
 	$(document).ready(function () {
-		$('.full').outerHeight($(window).height());
+		$('.full').outerHeight($(window).height() - 57);
+	});
+	$(window).resize(function () {
+		$('.full').outerHeight($(window).height() - 57);
 	});
 </script>
