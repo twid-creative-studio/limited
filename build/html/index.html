@@ -3,6 +3,96 @@
 <div class="main index">
 	<div class="main-slider full">
 	</div>
+	<div class="catalog">
+		<a href="#" class="items">
+			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5501.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<div class="line showroom">
+			<h3><b>посетите</b> наш <b>шоурум</b></h3>
+		</div>
+		<a href="#" class="items">
+			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5501.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<div class="line delivery">
+			<h3>бесплатная <b>доставка</b></h3>
+		</div>
+		<a href="#" class="items">
+			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+		<a href="#" class="items">
+			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+			<div class="info">
+				<p class="title">tom ford <span>confessions</span></p>
+				<p class="price">34700 uah</p>
+			</div>
+		</a>
+	</div>
+	<nav class="pagination">
+	    <ul>
+	        <li class="pagination-prev"><a href="#"><span>назад</span></a></li>
+	        <li class="pagination-number"><a href="#">1</a></li>
+	        <li class="pagination-number pagination-current"><a href="#">2</a></li>
+	        <li class="pagination-number"><a href="#">3</a></li>
+	        <li class="pagination-number"><a href="#">4</a></li>
+	        <li class="pagination-number"><a href="#">5</a></li>
+	        <li class="pagination-number"><a href="#">...</a></li>
+	        <li class="pagination-next"><a href="#"><span>вперед</span></a></li>
+	    </ul>
+	</nav>
 </div>
 
 //= module/footer.html
@@ -10,6 +100,9 @@
 <script>
 	$(document).ready(function () {
 		$('.full').outerHeight($(window).height() - 57);
+		if($('.pagination ul li').length < 8){
+			$('.pagination').addClass('seven');
+		}
 	});
 	$(window).resize(function () {
 		$('.full').outerHeight($(window).height() - 57);

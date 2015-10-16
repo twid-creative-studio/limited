@@ -1,5 +1,15 @@
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
 
 $(window).on('load', function () {
+
+	if(isFirefox){
+		$('.main-menu .menu a').addClass('fox');
+		$('.main-menu .social a').addClass('fox');
+	} else{
+		$('.main-menu .menu a').addClass('other');
+		$('.main-menu .social a').addClass('other');
+	}
 
 	//Preloader
 	var $preloader = $('#page-preloader'),
@@ -24,6 +34,7 @@ $(document).ready(function(){
 $(document).on('click','.menu-button', function(){
 
 });
+
 
 
 //Dropdown
@@ -161,4 +172,16 @@ $('.filter .title').click(function(){
     	});
   	}
 
+  	var oldRSC = "";
+  	$('.catalog .items').hover(function(){
+  		oldRSC = $(this).find('img').attr('src');
+  		$(this).find('img').attr('src', $(this).find('img').attr('data-hover'));
+  	}, function(){
+  		$(this).find('img').attr($(this).find('img').attr('src', oldRSC));
+  	});
+
+  	$(document).on('click', '.seo-text .read-more', function(){
+  		$(this).parent().toggleClass('active');
+  		$(this).toggleClass('active');
+  	});
 //} -- EVENTS
