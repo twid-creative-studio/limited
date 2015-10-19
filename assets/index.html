@@ -5,7 +5,8 @@
 	<title>Limited|Главная</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://i.icomoon.io/public/temp/1e6dbdf1d4/UntitledProject/style.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
 </head>
 <body>
@@ -31,8 +32,9 @@
 
 <div class="main index">
 	<div class="main-slider full">
+		<a href="#catalog" class="btn-scrolldown anchor"><span>в каталог</span></a>
 	</div>
-	<div class="catalog">
+	<div class="catalog" id="catalog">
 		<a href="#" class="items">
 			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
 			<div class="info">
@@ -160,39 +162,222 @@
 </div>
 
 <footer>
-	<div class="container">
-		
-	</div>
+	<p class="copyright">© limited 2015.</p>
+	<p class="develop">developed by <a href="#">twid</a></p>
 </footer>
 
-<div class="background-mask"></div>
-<div class="main-menu popup" id="main-menu">
-	<!-- <div class="close_win"></div> -->
-	<ul class="menu">
-		<li><a href="#">о магазине</a></li>
-		<li><a href="#">шоурум</a></li>
-		<li><a href="#">доставка/оплата</a></li>
-		<li><a href="#">скидки</a></li>
-		<li><a href="#">блог</a></li>
-		<li><a href="#">обмен/возврат</a></li>
-		<li><a href="#">гарантии</a></li>
-	</ul>
-	<ul class="social">
-		<li>
-			<a href="#" class="icon-instagram"></span></a>
-		</li>
-		<li>
-			<a href="#" class="icon-facebook"></a>
-		</li>
-		<li>
-			<a href="#" class="icon-twitter"></a>
-		</li>
-	</ul>
+
+
+<div class="popup">
+	<div class="main-menu popup-inner" id="main-menu">
+		<ul class="menu">
+			<li><a href="#">о магазине</a></li>
+			<li><a href="#">шоурум</a></li>
+			<li><a href="#">доставка/оплата</a></li>
+			<li><a href="#">скидки</a></li>
+			<li><a href="#">блог</a></li>
+			<li><a href="#">обмен/возврат</a></li>
+			<li><a href="#">гарантии</a></li>
+		</ul>
+		<ul class="social">
+			<li>
+				<a href="#" class="icon-instagram"></span></a>
+			</li>
+			<li>
+				<a href="#" class="icon-facebook"></a>
+			</li>
+			<li>
+				<a href="#" class="icon-twitter"></a>
+			</li>
+		</ul>
+	</div>
+	<div class="background-mask"></div>
 </div>
 
-<!--styles-->
-<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-<link rel="stylesheet" href="css/flickity.css" media="screen">
+
+<div class="btn-filters-block">
+		<div class="bth_women">Ж</div>
+		<div class="btn_men">М</div>
+		<div class="btn-filter">
+			<div class="icon">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line_triger line_triger_1"></span>
+				<span class="line_triger line_triger_2"></span>
+				<span class="line_triger line_triger_3"></span>
+			</div>
+			<p>ФИЛЬТР</p>
+		</div>
+</div>
+
+<div class="popup">
+	<div class="main-filter popup-inner" id="main-filter">
+		<div class="filter-list brands">
+			<p class="title">бренд</p>
+
+			<ul>
+				<li>Alexander Mcqueen</li>
+				<li>Armani</li>
+				<li>Hugo Boss</li>
+				<li>Carrera</li>
+				<li>Cartier</li>
+				<li>Cazal</li>
+				<li>Cheap Monday</li>
+				<li>Chrome Hearts</li>
+				<li>Dior</li>
+				<li>Dolce&Gabbana</li>
+				<li>Dsquared</li>
+				<li>Dunhill</li>
+				<li>Dupont</li>
+				<li>Evisu</li>
+				<li>Ferre</li>
+				<li>Givenchy</li>
+				<li>Gucci</li>
+				<li>House of Holland</li>
+				<li>Alexander Mcqueen</li>
+				<li>Armani</li>
+				<li>Hugo Boss</li>
+				<li>Carrera</li>
+				<li>Cartier</li>
+				<li>Cazal</li>
+				<li>Cheap Monday</li>
+				<li>Chrome Hearts</li>
+				<li>Dior</li>
+				<li>Dolce&Gabbana</li>
+				<li>Dsquared</li>
+				<li>Dunhill</li>
+				<li>Dupont</li>
+				<li>Evisu</li>
+				<li>Ferre</li>
+				<li>Givenchy</li>
+				<li>Gucci</li>
+				<li>House of Holland</li>
+				<li>Alexander Mcqueen</li>
+				<li>Armani</li>
+				<li>Hugo Boss</li>
+				<li>Carrera</li>
+				<li>Cartier</li>
+				<li>Cazal</li>
+				<li>Cheap Monday</li>
+				<li>Chrome Hearts</li>
+				<li>Dior</li>
+				<li>Dolce&Gabbana</li>
+				<li>Dsquared</li>
+				<li>Dunhill</li>
+				<li>Dupont</li>
+				<li>Evisu</li>
+				<li>Ferre</li>
+				<li>Givenchy</li>
+				<li>Gucci</li>
+				<li>House of Holland</li>
+			</ul>
+		</div>
+		<div class="filter-list forms">
+			<p class="title">форма</p>
+
+			<ul>
+				<li>
+					<div><img src="img/ui/form1.png" alt="form_1"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div><img src="img/ui/form2.png" alt="form_2"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div><img src="img/ui/form3.png" alt="form_3"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div><img src="img/ui/form5.png" alt="form_4"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div><img src="img/ui/form7.png" alt="form_5"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div><img src="img/ui/form8.png" alt="form_6"></div>
+					<span>круглые</span>
+				</li>
+			</ul>
+		</div>
+		<div class="filter-list colors-frame">
+			<p class="title">цвет оправы</p>
+
+			<ul>
+				<li>
+					<div class="color color_1"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_2"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_3"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_4"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_5"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_1"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_2"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_3"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_4"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_5"></div>
+					<span>круглые</span>
+				</li>
+			</ul>
+		</div>
+		<div class="filter-list colors-lenses">
+			<p class="title">цвет стекол</p>
+			<ul>
+				<li>
+					<div class="color color_1"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_2"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_3"></div>
+					<span>круглые</span>
+				</li>
+				<li>
+					<div class="color color_4"></div>
+					<span>круглые</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="control-panel">
+		<div class="btn-clear">очистить</div>
+		<div class="btn-apply">применить</div>
+		<div class="btn-close">закрыть</div>
+	</div>
+	<div class="background-mask"></div>
+</div>
 <!--scripts-->
 <script src="js/jquery-1.9.1.min.js"></script>
 <script src="js/SmoothScroll.js"></script>

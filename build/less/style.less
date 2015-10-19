@@ -10,6 +10,11 @@ body{
 	font-size: 100%;
 	font-family: 'AvenirNextCyr';
     font-weight: 400;
+    transition: all 0.2s linear;
+
+    &.popup_open{
+   		
+    }
 }
 
 * {
@@ -55,11 +60,12 @@ body{
 	display: block;
 	border-bottom: 1px solid #ebebeb;
 	text-align: center;
+	overflow: hidden;
 
 	&.seven{
 		ul{
 			li{
-				width: calc(~'14.28% - 2px');
+				width: 14.28%;
 			}
 		}
 	}
@@ -83,12 +89,15 @@ body{
 			display: inline-block;
 			vertical-align: middle;
 			line-height: 70px;
-			width: calc(~'12.5% - 2px');
+			padding: 0;
+			margin: 0;
+			width: 12.46%;
 			&.pagination-number{
 				color: #151515;
 				font-weight: 700;
 				font-size: 12px;
 				border: 1px solid transparent;
+				box-sizing: border-box;
 				text-align: center;
 				letter-spacing: 12*200/1000px;
 
@@ -227,4 +236,21 @@ body{
 			transform: rotate(180deg);
 		}
 	}
+}
+.mCSB_scrollTools{
+	left: 0 !important;
+	right: auto !important;
+}
+.mCSB_inside > .mCSB_container{
+	margin-left: 30px !important;
+	margin-right: 0 !important;
+}
+.mCSB_scrollTools .mCSB_draggerRail{
+	width: 1px !important;
+	background: rgba(255, 255, 255, 0.3) !important;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background: #b7b7b7 !important;
+	border-radius: 0 !important;
+	width: 3px !important;
 }

@@ -1,5 +1,84 @@
 @import "variables";
 
 footer{
-	
+	background: #151515;
+	height: 40px;
+
+	&:after{
+		content: "";
+		width: 0;
+		height: 0;
+		display: block;
+		clear: both;
+		visibility: hidden;
+	}
+
+	p{
+		line-height: 40px;
+		font-size: @font-size_10px;
+		letter-spacing: 10*200/1000px;
+		color: #b7b7b7;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.copyright{
+		float: left;
+		margin-left: 30px;
+	}
+	.develop{
+		float: right;
+		margin-right: 30px;
+
+		a{
+			&.fox{	
+				&:hover{
+					color: #484848;
+				}
+			}
+			&.other{
+				-webkit-animation: gradient_anim 5s linear infinite;
+				-moz-animation: gradient_anim 5s linear infinite;
+				-o-animation: gradient_anim 5s linear infinite;
+				animation: gradient_anim 5s linear infinite;
+
+				&:hover{
+					color: rgba(255, 255, 255, 0.1);
+					background: -moz-linear-gradient(271deg, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff), -moz-repeating-linear-gradient(-45deg, rgba(255,255,255,0.5), transparent 20px, rgba(255,255,255,0.3) 40px);
+					background: -webkit-linear-gradient(271deg, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff), -webkit-repeating-linear-gradient(-45deg, rgba(255,255,255,0.5), transparent 20px, rgba(255,255,255,0.3) 40px);
+					background: -o-linear-gradient(271deg, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff), -o-repeating-linear-gradient(-45deg, rgba(255,255,255,0.5), transparent 20px, rgba(255,255,255,0.3) 40px);
+					background: -ms-linear-gradient(271deg, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff), -ms-repeating-linear-gradient(-45deg, rgba(255,255,255,0.5), transparent 20px, rgba(255,255,255,0.3) 40px);
+					background: linear-gradient(271deg, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff, #ff1400, #ff8500, #feff00, #00ff05, #00e0ff, #000aff, #aa00ff), repeating-linear-gradient(-45deg, rgba(255,255,255,0.5), transparent 20px, rgba(255,255,255,0.3) 40px);
+
+					background-size: 500% 100%;
+					background-position: center left, top left;
+					
+					-webkit-background-clip: text;
+					-moz-background-clip: text;
+					background-clip: text;
+				}
+
+				@-webkit-keyframes gradient_anim {
+				    0%{background-position: center left, top left;}
+				    50%{background-position: center right, top right;}
+				    100%{background-position: center left, top left;}
+
+				}
+				@-moz-keyframes gradient_anim {
+				    0%{background-position: center left, top left;}
+				    50%{background-position: center right, top right;}
+				    100%{background-position: center left, top left;}
+				}
+				@-o-keyframes gradient_anim {
+				   0%{background-position: center left, top left;}
+				    50%{background-position: center right, top right;}
+				    100%{background-position: center left, top left;}
+				}
+				@keyframes gradient_anim { 
+				   0%{background-position: center left, top left;}
+				    50%{background-position: center right, top right;}
+				    100%{background-position: center left, top left;}
+				}
+			} 
+		}
+	}
 }
