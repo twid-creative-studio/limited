@@ -546,7 +546,6 @@
 <script src="js/SmoothScroll.js"></script>
 <script src="js/jquery.mCustomScrollbar.js"></script>
 <script src="js/jquery.autosize.js"></script>
-<script src="js/flickity.pkgd.min.js"></script>
 <script src="js/disableScrollbar.js"></script>
 <script src="js/main.js"></script>
 
@@ -554,12 +553,39 @@
 </html>
 
 <script>
+	var doc_scroll = 0,
+		catalog_box = 0;
+
+
 	$(document).ready(function () {
 		$('.full').outerHeight($(window).height() - 57);
 		if($('.pagination ul li').length < 8){
 			$('.pagination').addClass('seven');
 		}
 	});
+
+	$(window).on('load', function(){
+		catalog_box = $('#catalog').offset().top;
+	});
+
+	$(document).on('scroll',function(e) {
+
+		//Контроль видимости кнопки фильтров
+		doc_scroll = $(this).scrollTop();
+		console.log(doc_scroll + $(window).height() - 57, catalog_box + $('#catalog').outerHeight());
+
+		if(doc_scroll >= catalog_box - $(window).height()/2){
+			if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
+				$('.btn-filters-block').stop(true).fadeOut();
+			} else{
+				$('.btn-filters-block').stop(true, true).fadeIn();
+			}
+		} else if(doc_scroll <= catalog_box){
+			$('.btn-filters-block').stop(true, true).fadeOut();
+		}
+
+	});
+	
 	$(window).resize(function () {
 		$('.full').outerHeight($(window).height() - 57);
 	});

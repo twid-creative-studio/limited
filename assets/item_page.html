@@ -1,3 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Limited|Главная</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+</head>
+<body>
+
+	<div id="page-preloader">
+		<span class="spinner">
+			<div class="logo"></div>
+		</span>
+	</div>
+	<button class="c-hamburger c-hamburger--htx">
+	  <span>Кнопа Меню</span>
+	</button>
+	<header>
+		<div class="left">
+			<p>меню</p>
+		</div>
+		<div class="center"><a href="/" class="header-logo"><img src="img/logo-black@2x.png" alt=""></a></div>
+		<div class="right">
+			<span>063 803 65 05</span>
+			<i class="phone-icon"></i>
+			<div class="btn-cart">
+				<span>2</span>
+			</div>
+		</div>
+	</header>
+
+<div class="main item_page">
+	<div class="left">
+		<ul class="main-slider" id="slider">
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+			<li data-thumb="img/IMG_5652.png">
+				<img src="img/IMG_5652.png" />
+			</li>
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+			<li data-thumb="img/IMG_5652.png">
+				<img src="img/IMG_5652.png" />
+			</li>
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+		</ul>
+	</div>
+	<div class="right">
+		<div class="item_header">
+			<h2>alexander mcqueen</h2>
+			<h3>Upon arrival at Givenchy</h3>
+		</div>
+		<div class="free-delivery">
+			<span>бесплатная доставка</span>
+		</div>
+		<section>
+			<p class="price">34 800 uah</p>
+			<div class="count">
+				<span class="min"></span>
+				<span class="number">1</span>
+				<span class="plus"></span>
+			</div>
+		</section>
+	</div>
+</div>
+
 <div class="seo-text">
 	<div class="container">
 		<p>Посольство Латвійської Республіки в Україні до кінця місяця не прийматиме до розгляду заявки на отримання візи від власників безчіпових закордонних паспортів нового зразка. Цю інформацію "Європейській правді" підтвердили представники  посольства, а також громадяни, що намагалися податися на отримання візи.</p>
@@ -420,3 +494,29 @@
 
 </body>
 </html>
+
+<link rel="stylesheet" href="css/lightslider.css">
+<script src="js/lightslider.js"></script>
+<script>
+	var count = $('.main-slider li').length;
+
+	$(document).ready(function() {
+	
+		$('#slider').lightSlider({
+			gallery:true,
+			item:1,
+			vertical:true,
+			vThumbWidth:70,
+			enableTouch: true,
+			enableDrag: true,
+			freeMove: true,
+			slideMargin:0
+		});  
+	});
+
+	$(window).on('load', function(){
+		if(count * 49 <= $('.lSSlideWrapper').outerHeight()){
+			$('.lSPager').addClass('active');
+		}
+	});
+</script>

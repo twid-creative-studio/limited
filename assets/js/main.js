@@ -1,8 +1,7 @@
 var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
 
-var doc_scroll = 0,
-	catalog_box = 0;
+
 
 $(window).on('load', function () {
 
@@ -29,8 +28,6 @@ $(window).on('load', function () {
 
 	//textarea
 	$('textarea').autosize();
-
-	catalog_box = $('#catalog').offset().top;
 	
 });
 
@@ -49,6 +46,7 @@ $(document).ready(function(){
 	        window.location.hash = target;
 	    });
 	});
+
 });
 
 
@@ -61,25 +59,6 @@ $('body').on({
 	        e.stopPropagation();
         } 
     }
-});
-
-
-$(document).on('scroll',function(e) {
-
-	//Контроль видимости кнопки фильтров
-	doc_scroll = $(this).scrollTop();
-	console.log(doc_scroll + $(window).height() - 57, catalog_box + $('#catalog').outerHeight());
-
-	if(doc_scroll >= catalog_box - $(window).height()/2){
-		if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
-			$('.btn-filters-block').stop(true).fadeOut();
-		} else{
-			$('.btn-filters-block').stop(true, true).fadeIn();
-		}
-	} else if(doc_scroll <= catalog_box){
-		$('.btn-filters-block').stop(true, true).fadeOut();
-	}
-
 });
 
 //Dropdown
@@ -255,17 +234,14 @@ $('.count .plus').on('click', function() {
 
   	//Кнопка отправки заказа
   	$(document).on('click', '.btn-submit', function(){
-  		open_popup($('#successful_order'));
-  		setTimeout(function(){
-			close_popup($('#checkout'));
-  			close_popup($('#cart'));
-  		},200);
-  		
+  		open_popup($('#successful_order')); 		
   	});
   	
   	//Кнопка закрывающая корзину successful_order
   	$(document).on('click', '.close_successful_order', function(){
-  		close_popup($('#successful_order'));
+  		setTimeout( function () { close_popup($('#successful_order')); }, 300);
+  		close_popup($('#checkout'));
+		close_popup($('#cart'));
   	});
   	
   	
@@ -289,6 +265,7 @@ function open_popup(obj){
 		return false;
 	} else{
 		if(obj.attr('id') === "successful_order"){
+			DisableScrollbar();
 			$('.c-hamburger').addClass('open');
 		}
 		obj.parents('.popup').fadeIn(200, function(){

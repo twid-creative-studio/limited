@@ -1,0 +1,68 @@
+//= module/header.html
+
+<div class="main item_page">
+	<div class="left">
+		<ul class="main-slider" id="slider">
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+			<li data-thumb="img/IMG_5652.png">
+				<img src="img/IMG_5652.png" />
+			</li>
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+			<li data-thumb="img/IMG_5652.png">
+				<img src="img/IMG_5652.png" />
+			</li>
+			<li data-thumb="img/IMG_5650.png">
+				<img src="img/IMG_5650.png" />
+			</li>
+		</ul>
+	</div>
+	<div class="right">
+		<div class="item_header">
+			<h2>alexander mcqueen</h2>
+			<h3>Upon arrival at Givenchy</h3>
+		</div>
+		<div class="free-delivery">
+			<span>бесплатная доставка</span>
+		</div>
+		<section>
+			<p class="price">34 800 uah</p>
+			<div class="count">
+				<span class="min"></span>
+				<span class="number">1</span>
+				<span class="plus"></span>
+			</div>
+		</section>
+	</div>
+</div>
+
+//= module/footer.html
+
+<link rel="stylesheet" href="css/lightslider.css">
+<script src="js/lightslider.js"></script>
+<script>
+	var count = $('.main-slider li').length;
+
+	$(document).ready(function() {
+	
+		$('#slider').lightSlider({
+			gallery:true,
+			item:1,
+			vertical:true,
+			vThumbWidth:70,
+			enableTouch: true,
+			enableDrag: true,
+			freeMove: true,
+			slideMargin:0
+		});  
+	});
+
+	$(window).on('load', function(){
+		if(count * 49 <= $('.lSSlideWrapper').outerHeight()){
+			$('.lSPager').addClass('active');
+		}
+	});
+</script>
