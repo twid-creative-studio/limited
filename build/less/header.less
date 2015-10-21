@@ -74,6 +74,52 @@ header{
 			border: 1px solid #151515;
 			box-sizing: border-box;
 		}
+		.btn-cart{
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 28px;
+			height: 30px;
+			border: 1px solid #151515;
+			background: #151515;
+			padding: 0 10px;
+			margin-top: -1px;
+			margin-left: 4px;
+			span{
+				color: #fff;
+				margin: 0;
+				padding: 0;
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				margin-bottom: 1px;
+
+				&:before{
+					content: "";
+					width: 18px;
+					height: 18px;
+					line-height: 32px;
+					background: url(../img/ui/btn-cart_icon@2x.png) no-repeat center center;
+					background-size: contain;
+					display: inline-block;
+					vertical-align: middle;
+					position: relative;
+					margin-right: 7px;
+					margin-top: -4px;
+				}
+			}
+			&:hover{
+				cursor: pointer;
+				background: #fff;
+				span{
+					color: #151515;
+
+					&:before{
+						background: url(../img/ui/btn-cart_icon_active@2x.png) no-repeat center center;
+						background-size: contain;
+					}
+				}
+			}
+		}
 	}
 }	
 

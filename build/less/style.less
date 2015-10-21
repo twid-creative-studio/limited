@@ -10,10 +10,9 @@ body{
 	font-size: 100%;
 	font-family: 'AvenirNextCyr';
     font-weight: 400;
-    transition: all 0.2s linear;
 
     &.popup_open{
-   		
+    	//overflow: hidden;
     }
 }
 
@@ -237,20 +236,41 @@ body{
 		}
 	}
 }
-.mCSB_scrollTools{
+
+
+#main-filter .mCSB_scrollTools{
 	left: 0 !important;
 	right: auto !important;
 }
-.mCSB_inside > .mCSB_container{
+#main-filter .mCSB_inside > .mCSB_container{
 	margin-left: 30px !important;
 	margin-right: 0 !important;
 }
-.mCSB_scrollTools .mCSB_draggerRail{
+#main-filter .mCSB_scrollTools .mCSB_draggerRail{
 	width: 1px !important;
 	background: rgba(255, 255, 255, 0.3) !important;
 }
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+#main-filter .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 	background: #b7b7b7 !important;
 	border-radius: 0 !important;
 	width: 3px !important;
 }
+
+#cart .mCSB_scrollTools{
+	//left: 0 !important;
+	//right: auto !important;
+}
+#cart .mCSB_inside > .mCSB_container{
+	//margin-left: 30px !important;
+	margin-right: 0 !important;
+}
+#cart .mCSB_scrollTools .mCSB_draggerRail{
+	width: 1px !important;
+	background: rgba(255, 255, 255, 0.3) !important;
+}
+#cart .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background: #ebebeb !important;
+	border-radius: 5 !important;
+	width: 5px !important;
+}
+
