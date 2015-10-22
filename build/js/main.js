@@ -160,7 +160,7 @@ $('.count .plus').on('click', function() {
 
   	//Hover для товара(очков)
   	var oldRSC = "";
-  	$('.catalog .items').hover(function(){
+  	$('.catalog .items, .item_page .items').hover(function(){
   		oldRSC = $(this).find('img').attr('src');
   		$(this).find('img').attr('src', $(this).find('img').attr('data-hover'));
   	}, function(){
@@ -172,6 +172,13 @@ $('.count .plus').on('click', function() {
   		$(this).parent().toggleClass('active');
   		$(this).toggleClass('active');
   	});
+
+  	//Click для развертки Описания товара в карточке товара
+  	$(document).on('click', '.item_page .description .read-more', function(){
+  		$(this).parent().find('.text').toggleClass('active');
+  		$(this).toggleClass('active');
+  	});
+
 
   	//Click для фильтров
   	$(document).on('click', '.btn-filters-block .btn-filter', function(){
@@ -243,7 +250,7 @@ $('.count .plus').on('click', function() {
   		close_popup($('#checkout'));
 		close_popup($('#cart'));
   	});
-  	
+
   	
 //} -- EVENTS
 

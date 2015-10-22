@@ -1,0 +1,97 @@
+//= module/header.html
+
+<div class="main blog_page">
+	<h1>блог</h1>
+
+	<div class="posts-list">
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_1.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_2.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_3.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_4.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_5.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_6.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+	</div>
+</div>
+
+//= module/footer.html
+
+<script src="js/masonry.pkgd.min.js"></script>
+
+<script>
+var grid = "";
+var msnry = "";
+	$(document).ready(function(){
+		grid = document.querySelector('.posts-list');
+		msnry = new Masonry( grid, {
+		  // options
+		  itemSelector: '.item',
+		  "gutter": 1,
+		  percentPosition: true,
+		  columnWidth: '.item'
+		});
+	});
+
+	$(window).on('load', function () {
+		
+	})
+</script>

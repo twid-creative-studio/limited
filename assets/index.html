@@ -572,7 +572,6 @@
 
 		//Контроль видимости кнопки фильтров
 		doc_scroll = $(this).scrollTop();
-		console.log(doc_scroll + $(window).height() - 57, catalog_box + $('#catalog').outerHeight());
 
 		if(doc_scroll >= catalog_box - $(window).height()/2){
 			if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
