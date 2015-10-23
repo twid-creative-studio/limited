@@ -1,0 +1,65 @@
+//= module/header.html
+
+<div class="main sale_page">
+	<h1>наши скидки</h1>
+
+	<div class="sale-list">
+		<div class="item">
+			<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
+			<p class="title">скидочная карта</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
+			<p class="title">скидка на две пары очков</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
+			<p class="title">скидки именинникам</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
+			<p class="title">secret magic day</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
+			<p class="title">magic day</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
+			<p class="title">бесплатная доставка</p>
+		</div>
+	</div>
+</div>
+
+//= module/footer.html
+
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+
+<script>
+ // init Isotope
+    function isotope_(){
+        var $grid = $('.sale-list').imagesLoaded( function() {
+            // init Isotope after all images have loaded
+            $grid.isotope({
+                itemSelector: '.item',
+                percentPosition: true,
+                masonry: {
+                    // use element for option
+                    columnWidth: '.item',
+                    "gutter": 1
+                }
+            });
+        });
+        setTimeout(function(){
+            $grid.isotope('layout');
+        }, 1000);
+    }
+    $(window).load(function(){
+        isotope_();
+    });
+    $( window ).resize(function() {
+        isotope_();
+    });
+
+</script>

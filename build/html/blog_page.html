@@ -70,28 +70,73 @@
 				
 			</a>
 		</div>
+
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_1.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
+		<div class="item">
+			<a href="#" class="post">
+				<img src="img/post_photo_2.png" alt="photo">
+				<div class="info">
+					<p class="title">КАКИЕ СОЛНЕЧНЫЕ ОЧКИ НОСИТЬ ОСЕНЬЮ</p>
+					<p class="date">05.10.2015</p>
+					<p class="desc">Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные.</p>
+				</div>
+				
+			</a>
+		</div>
 	</div>
+	<nav class="pagination">
+	    <ul>
+	        <li class="pagination-prev"><a href="#"><span>назад</span></a></li>
+	        <li class="pagination-number"><a href="#">1</a></li>
+	        <li class="pagination-number pagination-current"><a href="#">2</a></li>
+	        <li class="pagination-number"><a href="#">3</a></li>
+	        <li class="pagination-number"><a href="#">4</a></li>
+	        <li class="pagination-number"><a href="#">5</a></li>
+	        <li class="pagination-number"><a href="#">...</a></li>
+	        <li class="pagination-next"><a href="#"><span>вперед</span></a></li>
+	    </ul>
+	</nav>
 </div>
 
 //= module/footer.html
 
-<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
 
 <script>
-var grid = "";
-var msnry = "";
-	$(document).ready(function(){
-		grid = document.querySelector('.posts-list');
-		msnry = new Masonry( grid, {
-		  // options
-		  itemSelector: '.item',
-		  "gutter": 1,
-		  percentPosition: true,
-		  columnWidth: '.item'
-		});
-	});
+ // init Isotope
+    function isotope_(){
+        var $grid = $('.posts-list').imagesLoaded( function() {
+            // init Isotope after all images have loaded
+            $grid.isotope({
+                itemSelector: '.item',
+                percentPosition: true,
+                masonry: {
+                    // use element for option
+                    columnWidth: '.item',
+                    "gutter": 1
+                }
+            });
+        });
+        setTimeout(function(){
+            $grid.isotope('layout');
+        }, 1000);
+    }
+    $(window).load(function(){
+        isotope_();
+    });
+    $( window ).resize(function() {
+        isotope_();
+    });
 
-	$(window).on('load', function () {
-		
-	})
 </script>

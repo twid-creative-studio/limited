@@ -33,100 +33,35 @@
 		</div>
 	</header>
 
-<div class="main index">
-	<div class="main-slider full">
-		<a href="#catalog" class="btn-scrolldown anchor"><span>в каталог</span></a>
-	</div>
-	<div class="catalog" id="catalog">
-		<a href="#" class="items">
-			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5501.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<div class="line showroom">
-			<h3><b>посетите</b> наш <b>шоурум</b></h3>
+<div class="main sale_page">
+	<h1>наши скидки</h1>
+
+	<div class="sale-list">
+		<div class="item">
+			<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
+			<p class="title">скидочная карта</p>
 		</div>
-		<a href="#" class="items">
-			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5501.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<div class="line delivery">
-			<h3>бесплатная <b>доставка</b></h3>
+		<div class="item">
+			<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
+			<p class="title">скидка на две пары очков</p>
 		</div>
-		<a href="#" class="items">
-			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
-		<a href="#" class="items">
-			<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
-			<div class="info">
-				<p class="title">tom ford <span>confessions</span></p>
-				<p class="price">34700 uah</p>
-			</div>
-		</a>
+		<div class="item">
+			<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
+			<p class="title">скидки именинникам</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
+			<p class="title">secret magic day</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
+			<p class="title">magic day</p>
+		</div>
+		<div class="item">
+			<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
+			<p class="title">бесплатная доставка</p>
+		</div>
 	</div>
-	<nav class="pagination">
-	    <ul>
-	        <li class="pagination-prev"><a href="#"><span>назад</span></a></li>
-	        <li class="pagination-number"><a href="#">1</a></li>
-	        <li class="pagination-number pagination-current"><a href="#">2</a></li>
-	        <li class="pagination-number"><a href="#">3</a></li>
-	        <li class="pagination-number"><a href="#">4</a></li>
-	        <li class="pagination-number"><a href="#">5</a></li>
-	        <li class="pagination-number"><a href="#">...</a></li>
-	        <li class="pagination-next"><a href="#"><span>вперед</span></a></li>
-	    </ul>
-	</nav>
 </div>
 
 <div class="seo-text">
@@ -552,40 +487,33 @@
 </body>
 </html>
 
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+
 <script>
-	var doc_scroll = 0,
-		catalog_box = 0;
+ // init Isotope
+    function isotope_(){
+        var $grid = $('.sale-list').imagesLoaded( function() {
+            // init Isotope after all images have loaded
+            $grid.isotope({
+                itemSelector: '.item',
+                percentPosition: true,
+                masonry: {
+                    // use element for option
+                    columnWidth: '.item',
+                    "gutter": 1
+                }
+            });
+        });
+        setTimeout(function(){
+            $grid.isotope('layout');
+        }, 1000);
+    }
+    $(window).load(function(){
+        isotope_();
+    });
+    $( window ).resize(function() {
+        isotope_();
+    });
 
-
-	$(document).ready(function () {
-		$('.full').outerHeight($(window).height() - 57);
-		if($('.pagination ul li').length < 8){
-			$('.pagination').addClass('seven');
-		}
-	});
-
-	$(window).on('load', function(){
-		catalog_box = $('#catalog').offset().top;
-	});
-
-	$(document).on('scroll',function(e) {
-
-		//Контроль видимости кнопки фильтров
-		doc_scroll = $(this).scrollTop();
-
-		if(doc_scroll >= catalog_box - $(window).height()/2){
-			if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
-				$('.btn-filters-block').stop(true).fadeOut();
-			} else{
-				$('.btn-filters-block').stop(true, true).fadeIn();
-			}
-		} else if(doc_scroll <= catalog_box){
-			$('.btn-filters-block').stop(true, true).fadeOut();
-		}
-
-	});
-	
-	$(window).resize(function () {
-		$('.full').outerHeight($(window).height() - 57);
-	});
 </script>
