@@ -1,0 +1,95 @@
+@import "../variables";
+
+.delivery{
+	background: #eaf6ff;
+
+	&:after{
+		content: "";
+		width: 0;
+		height: 0;
+		display: block;
+		clear: both;
+		visibility: hidden;
+	}
+	h1{
+		font-weight: 900;
+		font-size: @font-size_80px;
+		letter-spacing: 80*(-50)/1000px;
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff43e;
+		line-height: 110px;
+		border-bottom: 1px solid #ebebeb;
+
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff5e5e+1,58fef1+100 */
+		background: #ff5e5e; /* Old browsers */
+		background: -moz-linear-gradient(left,  #ff5e5e 1%, #58fef1 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(1%,#ff5e5e), color-stop(100%,#58fef1)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  #ff5e5e 1%,#58fef1 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  #ff5e5e 1%,#58fef1 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  #ff5e5e 1%,#58fef1 100%); /* IE10+ */
+		background: linear-gradient(to right,  #ff5e5e 1%,#58fef1 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e5e', endColorstr='#58fef1',GradientType=1 ); /* IE6-9 */
+	}
+	.items{
+		width: 33.3%;
+		float: left;
+		padding: 70px 60px;
+		box-sizing: border-box;
+		border-right: 1px solid #fff;
+
+		&:nth-of-type(3){
+			border-right: 1px solid #eaf6ff;
+		}
+
+		h3{
+			font-weight: 900;
+			font-size: @font-size_24px;
+			color: #151515;
+			letter-spacing: 24*(-50)/1000px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.icon{
+			height: 105px;
+			text-align: center;
+			margin: 30px 0;
+			img{
+				width: auto;
+				height: 100%;
+			}
+		}
+		h5{
+			font-size: @font-size_14px;
+			color: #151515;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin-bottom: 10px;
+			letter-spacing: 14*50/1000px;
+			display: block;
+		}
+		b{
+			font-size: @font-size_14px;
+			color: #151515;
+			font-weight: 700;
+			margin-bottom: 10px;
+			letter-spacing: 14*50/1000px;
+			display: block;
+			margin-bottom: 20px;
+		}
+		p{
+			line-height: 22px;
+			color: #151515;
+			font-size: @font-size_14px;
+			font-weight: 300;
+			letter-spacing: 14*50/1000px;
+			margin-bottom: 10px;
+		}
+	}
+	.line{
+		position: relative;
+		z-index: 1;
+		float: none;
+	}
+} 

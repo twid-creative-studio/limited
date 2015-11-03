@@ -1,0 +1,163 @@
+//= module/header.html
+
+<div class="main showroom">
+	<div class="top">
+		<div class="left">
+			
+		</div>
+		<div class="right">
+			<div class="info">
+				<div class="location">
+					<p>КИЕВ, М. ЛЬВА ТОЛСТОГО</p>
+					<a href="#">УЛ. КРАСНОАРМЕЙСКАЯ 30-В</a>
+					<p>1 ЭТАЖ — ОФИС 18</p>
+				</div>
+				<div class="time-work">
+					<p>ВТ-ВС С <span>12:00</span> ДО <span>20:00</span> ПН — МЫ ВЫХОДНЫЕ !</p>
+				</div>
+				<a href="tel:+380638036505" class="phone">+38 063 803 65 05</a>
+				<a href="mailto:ohmyglasses.com.ua@gmail.com" class="mail"><span>ohmyglasses.com.ua@gmail.com</span></a>
+			</div>
+			<div class="desc">
+				<h3>заходите в гости!</h3>
+				<p>Дорогие друзья, рады пригласить вас посетить наш креативный Шоу-Рум в котором представлены самые модные и трендовые солнцезащитные очки и оправы известнейших мировых брендов, коллекций 2014-2015 г.</p>
+				<p>Среди них такие, как Celine, Gucci, Dior, Chanel, Prada, Tom Ford, Marc Jacobs, D&G, Burberry, Persol, Super</p>
+			</div>
+		</div>
+	</div>
+	<div class="map">
+		<div id="map-canvas"></div>
+	</div>
+</div>
+
+//= module/footer.html
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+   var map;
+   var latlng = new google.maps.LatLng(50.438541, 30.515760);
+
+   // Иконки
+   var limited = {
+       url: 'img/ui/map-marker.png',
+       size: new google.maps.Size(37, 51),
+       //scaledSize: new google.maps.Size(32, 43),
+       origin: new google.maps.Point(0, 0),
+       anchor: new google.maps.Point(17, 49)
+   };
+
+    var styles = [
+	    {
+	        "featureType": "administrative",
+	        "elementType": "labels.text.fill",
+	        "stylers": [
+	            {
+	                "color": "#444444"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "landscape",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "color": "#f2f2f2"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "poi",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "saturation": -100
+	            },
+	            {
+	                "lightness": 45
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road.highway",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "simplified"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road.arterial",
+	        "elementType": "labels.icon",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "transit",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "water",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "color": "#fdeb06"
+	            },
+	            {
+	                "visibility": "on"
+	            }
+	        ]
+	    }
+	];
+
+    var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+    function render_map( $el ) {
+       // add markers
+
+       // vars
+       var args = {
+           zoom        : 13,
+           center        : latlng,
+           scrollwheel: false,
+           mapTypeId    : google.maps.MapTypeId.ROADMAP
+       };
+       // create map
+       var map = new google.maps.Map( $el[0], args);
+
+       // create marker
+       var marker_office = new google.maps.Marker({position:latlng, map:map, icon:limited});
+
+       //map.panBy(-130,0);
+
+       //Associate the styled map with the MapTypeId and set it to display.
+		map.mapTypes.set('map_style', styledMap);
+		map.setMapTypeId('map_style');
+   }
+
+   function initialize() {
+       $('#map-canvas').each(function(){
+           render_map( $(this) );
+       });
+   }
+
+   google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
