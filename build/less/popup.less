@@ -16,7 +16,7 @@
 	}
 }
 .popup-inner{
-	z-index: 4;
+	z-index: 5;
 }
 .popup{
 	position: fixed;
@@ -25,7 +25,7 @@
 	top: 0;
 	left: 0;
 	display: none;
-	z-index: 4;
+	z-index: 5;
 	
 
 	&.active{
@@ -35,6 +35,7 @@
 .main-menu{
 	width: 300px;
 	height: 100%;
+	transition: all 0.2s linear;
 	position: fixed;
 	background: #151515;
 	top: 0;
@@ -55,9 +56,12 @@
 
 	.menu{
 		margin-top: 145px;
+		transition: all 0.2s linear;
 		position: relative;
 		li{
 			list-style: none;
+	transition: all 0.2s linear;
+			
 
 			a{
 				font-size: @font-size_12px;
@@ -127,13 +131,14 @@
 	.social{
 		position: absolute;
 		bottom: 0;
-		border: 1px solid #464646;
+		border-top: 1px solid #464646;
 		text-align: justify;
 		width: auto;
 		height: 70px;
 		font-size: 0;
 		background: #000;
-		width: calc(~'100% - 2px');
+		width: 100%;
+
 
 		&:after{
 			content: '';
@@ -224,8 +229,8 @@
 
 .main-filter{
 
-	width: 1024px;
-	height: 520px;
+	max-width: 1024px;
+	max-height: 520px;
 	position: absolute;
 	top: 50%;
 	left: 50%;

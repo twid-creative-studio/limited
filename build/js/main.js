@@ -26,6 +26,12 @@ $(window).on('load', function () {
 		axis: "y"
 	});
 
+	$(".checkout form").mCustomScrollbar({
+		axis: "y",
+		scrollbarPosition: "outside"
+	});
+
+
 	//textarea
 	$('textarea').autosize();
 
@@ -57,8 +63,8 @@ $(document).ready(function(){
 $('body').on({
     'mousewheel': function(e) {
         if ($('body').hasClass('popup_open')){
-			e.preventDefault();
-	        e.stopPropagation();
+			//e.preventDefault();
+	        //e.stopPropagation();
         } 
     }
 });
@@ -111,6 +117,7 @@ $('.count .plus').on('click', function() {
 
 //EVENTS -- {
 
+
 	//Menu-button_burger
 	(function() {
 
@@ -161,10 +168,13 @@ $('.count .plus').on('click', function() {
 	//} - закрытие popup по нажатию на маску
 
   	//Hover для товара(очков)
-  	var oldRSC = "";
+  	var oldRSC = "",
+  		sizeIMG = 0;
   	$('.catalog .items, .item_page .items').hover(function(){
+  		sizeIMG = $(this).find('img').outerHeight();
   		oldRSC = $(this).find('img').attr('src');
   		$(this).find('img').attr('src', $(this).find('img').attr('data-hover'));
+  		$(this).find('img').outerHeight(sizeIMG);
   	}, function(){
   		$(this).find('img').attr('src', oldRSC);
   	});
@@ -185,6 +195,7 @@ $('.count .plus').on('click', function() {
   	//Click для фильтров
   	$(document).on('click', '.btn-filters-block .btn-filter', function(){
   		open_popup($('#main-filter'));
+  		$('#main-filter').parent().find('.background-mask').css('background', 'rgba(21, 21, 21, 0.9)');
   	});
 
 
@@ -262,6 +273,23 @@ $('.count .plus').on('click', function() {
   	//Закрыть окно деталей скидки
   	$(document).on('click', '.header-popup .close', function(){
   		close_popup($(this).parents('.popup').find('.popup-inner'));
+  	});
+
+
+  	//Развернуть список фильтров в окне фильтров
+  	$(document).on('click', '.main-filter .filter-list .title', function(){
+
+			if($(this).parents('.filter-list').hasClass('active')){
+				$(this).parents('.filter-list').removeClass('active');
+				$('.main-filter').removeClass('open');
+
+			} else{
+				$('.main-filter .filter-list').removeClass('active');
+				$(this).parents('.filter-list').addClass('active');
+				$('.main-filter').addClass('open');
+
+			}
+ 
   	});
   	
 //} -- EVENTS
@@ -367,7 +395,11 @@ function close_popup(obj){
 
 //Перерасчет эелементов в корзине для устрановки/удаление скролла
 function recalculation_cart(){
-	$('#cart .list-items').outerHeight($(window).height() - 57 - 142 - 10);
+	if($(window).width() <= 640){
+		$('#cart .list-items').outerHeight($(window).height() - 57 - 85 - 10);
+	} else{
+		$('#cart .list-items').outerHeight($(window).height() - 57 - 142 - 10);
+	}
 	setTimeout(function(){
 		$("#cart .list-items").mCustomScrollbar({
 			axis: "y"

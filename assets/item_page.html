@@ -7,7 +7,9 @@
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,  user-scalable=0; ">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
 <body>
 
@@ -456,27 +458,27 @@
 
 			<ul>
 				<li>
-					<div><img src="img/ui/form1.png" alt="form_1"></div>
+					<div><img src="img/ui/shape_1.svg" alt="form_1"></div>
 					<span>круглые</span>
 				</li>
 				<li>
-					<div><img src="img/ui/form2.png" alt="form_2"></div>
+					<div><img src="img/ui/shape_2.svg" alt="form_2"></div>
 					<span>круглые</span>
 				</li>
 				<li>
-					<div><img src="img/ui/form3.png" alt="form_3"></div>
+					<div><img src="img/ui/shape_3.svg" alt="form_3"></div>
 					<span>круглые</span>
 				</li>
 				<li>
-					<div><img src="img/ui/form5.png" alt="form_4"></div>
+					<div><img src="img/ui/shape_4.svg" alt="form_4"></div>
 					<span>круглые</span>
 				</li>
 				<li>
-					<div><img src="img/ui/form7.png" alt="form_5"></div>
+					<div><img src="img/ui/shape_5.svg" alt="form_5"></div>
 					<span>круглые</span>
 				</li>
 				<li>
-					<div><img src="img/ui/form8.png" alt="form_6"></div>
+					<div><img src="img/ui/shape_6.svg" alt="form_6"></div>
 					<span>круглые</span>
 				</li>
 			</ul>
@@ -731,6 +733,8 @@
 	
 	var heightSlide = (($(window).width()-500)/100)*65;
 	var heightSlideThumb = (($(window).width()-500)/100)*9;
+	var cofM = 65;
+	var cofT = 9;
 
 	var mainSlider = "";
 
@@ -739,8 +743,13 @@
 
 	$(document).ready(function() {
 
-		heightSlide = (($(window).width()-500)/100)*65;
-		heightSlideThumb = (($(window).width()-500)/100)*9;
+		if($(window).width() <= 1024){
+			cofM = 90;
+			cofT = 12;
+		}
+
+		heightSlide = (($(window).width()-500)/100)*cofM;
+		heightSlideThumb = (($(window).width()-500)/100)*cofT;
 		
 		mainSlider = $('#slider').lightSlider({
 			gallery:true,
@@ -756,10 +765,7 @@
 			verticalHeight: heightSlide
 		});
 
-		$("#other-color-slider").lightSlider({
-			item: 1,
-			pager: false
-		});
+		
 
 		$("#random-model-slider").lightSlider({
 			item: 4,
@@ -767,7 +773,24 @@
 			slideMove:4,
 			easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
         	speed: 800,
-        	controls: false
+        	controls: false,
+        	responsive : [
+	            {
+	                breakpoint:1025,
+	                settings: {
+	                    item:3,
+	                    slideMove:3
+	                  }
+	            },
+
+	            {
+	                breakpoint:768,
+	                settings: {
+	                    item:2,
+	                    slideMove:2
+	                  }
+	            }
+	        ]
 		});
 
 
@@ -780,6 +803,10 @@
 	  			$('.options .tab-block').hide();
 	  			$('.options .tab-option').show();
 	  		} else if($(this).hasClass('other-color_tab')){
+	  			$("#other-color-slider").lightSlider({
+					item: 1,
+					pager: false
+				});
 	  			$('.options .tab-block').hide();
 	  			$('.options .tab-other-color').show();
 
@@ -797,7 +824,7 @@
 
 	$(window).on('load', function(){
 
-		$('.options .tab-other-color').fadeOut(150);
+	$('.options .tab-other-color').hide();
 
 		if(count * 49 <= $('.lSSlideWrapper').outerHeight()){
 			$('.lSPager').addClass('active');
