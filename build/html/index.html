@@ -2,6 +2,61 @@
 
 <div class="main index">
 	<div class="main-slider full">
+		<ul class="mainSlider" id="main-slider">
+			<li>
+				<div class="item item_gender">
+					<a href="#" class="men">
+						<div class="block_icon"></div>
+						<div class="main_block">
+							<div class="front"></div>
+							<div class="back"></div>
+							<div class="title">MEN</div>
+						</div>
+						
+						<div class="subTitle">мужские очки</div>
+					</a>
+					<a href="#" class="women">
+						<div class="block_icon"></div>
+						<div class="main_block">
+							<div class="back"></div>
+							<div class="title">W</div>
+							<div class="title">OM</div>
+							<div class="title">EN</div>
+						</div>
+						<div class="subTitle">женские очки</div>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="item item_showroom">
+					<a href="#" class="showroom">
+						<div class="block_icon"></div>
+						<div class="main_block">
+							<div class="front"></div>
+							<div class="back"></div>
+							<div class="title">sho</div>
+							<div class="title">wr</div>
+							<div class="title">ooom</div>
+						</div>						
+						<div class="subTitle">ПОСЕТИТЕ НАШ шоурум в цетре киева</div>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="item item_magicday">
+					<a href="#" class="magicday">
+						<div class="block_icon"></div>
+						<div class="main_block">
+							<div class="back"></div>
+						</div>	
+						<div class="title">magicday</div>					
+						<div class="subTitle">УЗНАЙТЕ О НАШИХ АКЦИЯХ</div>
+					</a>
+				</div>
+			</li>
+		</ul>
+
+
 		<a href="#catalog" class="btn-scrolldown anchor"><span>в каталог</span></a>
 	</div>
 	<div class="catalog" id="catalog">
@@ -34,7 +89,7 @@
 			</div>
 		</a>
 		<div class="line showroom">
-			<a href="#"><h3><b>посетите</b> <span>наш</span> <b>шоурум</b></h3></a>
+			<a href="#"><h3><b>посетите</b> наш <b>шоурум</b></h3></a>
 		</div>
 		<a href="#" class="items">
 			<img src="img/IMG_5661.png" data-hover="img/IMG_5661_hover.png" alt="photo">
@@ -65,7 +120,7 @@
 			</div>
 		</a>
 		<div class="line delivery">
-			<a href="#"><h3><span>бесплатная</span> <b>доставка</b></h3></a>
+			<a href="#"><h3>бесплатная <b>доставка</b></h3></a>
 		</div>
 		<a href="#" class="items">
 			<img src="img/IMG_5650.png" data-hover="img/IMG_5661_hover.png" alt="photo">
@@ -98,20 +153,47 @@
 
 //= module/footer.html
 
+<link rel="stylesheet" href="css/lightslider.css">
+<script src="js/lightslider.js"></script>
+
 <script>
 	var doc_scroll = 0,
 		catalog_box = 0;
 
 
 	$(document).ready(function () {
-		$('.full').outerHeight($(window).height() - 57);
-		if($('.pagination ul li').length < 8){
-			$('.pagination').addClass('seven');
+		if($(window).width() >= 1024){
+			check_height();
+		 }else if($(window).width() < 1024){
+			$('.full').outerHeight(0);
 		}
 	});
 
+	function check_height(){
+		$('.full').outerHeight($(window).height() - 57);
+		$('.main-slider .item').outerHeight($(window).height() - 57);
+		if($('.pagination ul li').length < 8){
+			$('.pagination').addClass('seven');
+		}
+	}
+
 	$(window).on('load', function(){
+
 		catalog_box = $('#catalog').offset().top;
+	
+		mainSlider = $('#main-slider').lightSlider({
+			item:1,
+			slideMargin:0,
+			auto: true,
+			loop: true,
+			mode: 'fade',
+			speed: 1500,
+			keyPress: true,
+			pause: 10000,
+			pager: false,
+			responsive: true
+		});
+		resizeSlider();
 	});
 
 	$(document).on('scroll',function(e) {
@@ -131,7 +213,72 @@
 
 	});
 	
+	var itemHeught = 0,
+		winHeight = $(window).height()-57,
+		winWidth = $(window).width()/2,
+		cof = 1,
+		cofW = 1;
+
 	$(window).resize(function () {
-		$('.full').outerHeight($(window).height() - 57);
-	});
+		mainSlider.destroy();
+
+		if($(window).width() >= 1024){
+			$('.full').outerHeight($(window).height() - 57);
+
+			mainSlider = $('#main-slider').lightSlider({
+				item:1,
+				slideMargin:0,
+				auto: true,
+				loop: true,
+				mode: 'fade',
+				speed: 1500,
+				keyPress: true,
+				pause: 5000,
+				pager: false,
+				responsive: true
+			});
+
+			check_height();
+			resizeSlider();
+		} else if($(window).width() < 1024){
+			$('.full').outerHeight(0);
+		}
+	});	
+
+	function resizeSlider(){
+
+		winHeight = $(window).height()-57;
+		winWidth = $(window).width()/2;
+
+		itemHeught = $('.main-slider li .item > a').outerHeight();
+
+		if($(window).width() == 1024){
+			cof = 1 - ((itemHeught* 0.9/winHeight)-1 * 0.85);
+		} else{
+			cof = winHeight/itemHeught;
+		}
+	    /*if(winHeight > itemHeught){
+			cof = winHeight/itemHeught;
+		} else if(winHeight < itemHeught){
+			cof = 1 - ((itemHeught* 0.9/winHeight)-1 * 0.85);
+		}*/
+
+		if(winWidth > 640){
+			cofW = winWidth/640;
+		} else if(winWidth < 640){
+			cofW = 640/winWidth;
+		}
+
+
+		$('.main-slider .item > a').addClass('is-scale');
+		
+		$('.main-slider .item > a.is-scale').css('transform', 'scale(' + cof + ') translateY(-' + (50 - (50 * (cof-1))) + '%)');
+
+		
+
+	}
+
+
+	
+
 </script>

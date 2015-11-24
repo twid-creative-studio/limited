@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,  user-scalable=0; ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
@@ -92,7 +92,7 @@
 		</section>
 	</div>
 	<div class="line showroom">
-		<h3><b>посетите</b> наш <b>шоурум</b></h3>
+		<h3><b>посетите</b><span>наш</span><b>шоурум</b></h3>
 	</div>
 </div>
 
@@ -449,7 +449,11 @@
 
 <!--Checkout-->
 <div class="popup">
-	<div class="close_checkout"><span></span></div>
+	<div class="close_checkout">
+		<span></span>
+		<div class="back_step"></div>
+	</div>
+
 
 	<div class="checkout popup-inner" id="checkout">
 		
@@ -488,10 +492,13 @@
 					 </div>
 				</div>
 			</p>
-
+			
 		</form>
+		<div class="submit-block">
+				<button type="submit" class="btn-submit">заказать</button>
+			</div>
 	</div>
-	<button type="submit" class="btn-submit">заказать</button>
+	
 	<div class="background-mask"></div>
 </div>
 

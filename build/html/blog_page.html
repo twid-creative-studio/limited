@@ -121,6 +121,7 @@
             $grid.isotope({
                 itemSelector: '.item',
                 percentPosition: true,
+                isResizeBound: true,
                 masonry: {
                     // use element for option
                     columnWidth: '.item',
@@ -128,14 +129,10 @@
                 }
             });
         });
-        setTimeout(function(){
-            $grid.isotope('layout');
-        }, 1000);
+      
+        $grid.isotope('layout');
     }
-    $(window).load(function(){
-        isotope_();
-    });
-    $( window ).resize(function() {
+    $(document).ready(function(){
         isotope_();
     });
 

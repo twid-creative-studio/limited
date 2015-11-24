@@ -16,7 +16,7 @@
 					<p>ВТ-ВС С <span>12:00</span> ДО <span>20:00</span> ПН — МЫ ВЫХОДНЫЕ !</p>
 				</div>
 				<a href="tel:+380638036505" class="phone">+38 063 803 65 05</a>
-				<a href="mailto:ohmyglasses.com.ua@gmail.com" class="mail"><span>ohmyglasses.com.ua@gmail.com</span></a>
+				<a href="mailto:ohmyglasses.com.ua@gmail.com" class="mail"><span>limited@gmail.com</span></a>
 			</div>
 			<div class="desc">
 				<h3>заходите в гости!</h3>
@@ -36,11 +36,11 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
    var map;
-   var latlng = new google.maps.LatLng(50.438541, 30.515760);
+   var latlng = new google.maps.LatLng(50.438289, 30.515095);
 
    // Иконки
    var limited = {
-       url: 'img/ui/map-marker.png',
+       url: 'img/ui/map-marker.svg',
        size: new google.maps.Size(37, 51),
        //scaledSize: new google.maps.Size(32, 43),
        origin: new google.maps.Point(0, 0),
@@ -54,15 +54,6 @@
 	        "stylers": [
 	            {
 	                "color": "#444444"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "landscape",
-	        "elementType": "all",
-	        "stylers": [
-	            {
-	                "color": "#f2f2f2"
 	            }
 	        ]
 	    },
@@ -110,7 +101,7 @@
 	        "elementType": "all",
 	        "stylers": [
 	            {
-	                "visibility": "off"
+	                "visibility": "on"
 	            }
 	        ]
 	    },
@@ -134,7 +125,7 @@
 
        // vars
        var args = {
-           zoom        : 13,
+           zoom        : 17,
            center        : latlng,
            scrollwheel: false,
            mapTypeId    : google.maps.MapTypeId.ROADMAP
@@ -159,5 +150,29 @@
    }
 
    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+   $(window).on('load', function(){
+   		if($(window).width() <= 768 ){
+   			if($(window).width() > 640){
+   				$('.showroom .left').outerHeight(parseInt($('.showroom .right .info').outerHeight()));
+
+   			}
+   		} else{
+   			$('.showroom .left').outerHeight(parseInt($('.showroom .right').outerHeight()));
+   		}
+   		
+   });
+
+   $(window).resize(function(){
+   		if($(window).width() <= 768 ){
+   			if($(window).width() > 640){
+   				$('.showroom .left').outerHeight(parseInt($('.showroom .right .info').outerHeight()));
+   			}
+   			
+   		} else{
+   			$('.showroom .left').outerHeight(parseInt($('.showroom .right').outerHeight()));
+   		}
+   });
 
 </script>

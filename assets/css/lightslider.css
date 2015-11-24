@@ -52,7 +52,7 @@
     width: 100%;
 }
 .lSSlideWrapper.usingCss .lSFade > * {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     -webkit-transition-duration: inherit !important;

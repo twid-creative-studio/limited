@@ -26,21 +26,33 @@ $(window).on('load', function () {
 		axis: "y"
 	});
 
-	$(".checkout form").mCustomScrollbar({
-		axis: "y",
-		scrollbarPosition: "outside"
-	});
+	
 
 
 	//textarea
 	$('textarea').autosize();
 
+	if( $(window).width() < 640 ){
+		$(".checkout").mCustomScrollbar({
+			axis: "y",
+			scrollbarPosition: "outside"
+		});
+	} else if( $(window).width() >= 640 ){
+		$('.checkout form').outerHeight($(window).height() - 109 - 140 );
 
+		$(".checkout form").mCustomScrollbar({
+			axis: "y",
+			scrollbarPosition: "outside"
+		});
+	}
 	
 });
 
+
+
+
 $(document).ready(function(){
-	$('a.anchor').on('click',function (e) {
+	$('a.anchor').bind("click", function(e){
 
 		var offsetTop = 57;
 	    e.preventDefault();
@@ -53,21 +65,22 @@ $(document).ready(function(){
 	    }, 900, 'swing', function () {
 	        window.location.hash = target;
 	    });
+
+	    return false;
+
 	});
 
 });
 
-
-
 //Disable scroll
-$('body').on({
-    'mousewheel': function(e) {
-        if ($('body').hasClass('popup_open')){
-			//e.preventDefault();
-	        //e.stopPropagation();
-        } 
+document.ontouchmove = function(e){
+	if ($('body').hasClass('popup_open')){
+		e.preventDefault();
+        e.stopPropagation();
     }
-});
+};
+
+
 
 //Dropdown
 $(document).on('click','.cuslom_dropdown', function(){
@@ -168,15 +181,27 @@ $('.count .plus').on('click', function() {
 	//} - закрытие popup по нажатию на маску
 
   	//Hover для товара(очков)
-  	var oldRSC = "",
-  		sizeIMG = 0;
-  	$('.catalog .items, .item_page .items').hover(function(){
-  		sizeIMG = $(this).find('img').outerHeight();
-  		oldRSC = $(this).find('img').attr('src');
-  		$(this).find('img').attr('src', $(this).find('img').attr('data-hover'));
-  		$(this).find('img').outerHeight(sizeIMG);
+  	var oldRSC = "";
+  		//sizeIMG = 0;
+  	$('.catalog .items img, .item_page .tab-other-color .items img, .item_page .random_model .items img').hover(function(){
+  		//sizeIMG = $(this).outerHeight();
+  		oldRSC = $(this).attr('src');
+  		$(this).attr('src', $(this).attr('data-hover'));
+  		$(this).parents('.items').find('.info').addClass('active');
+
+  		//$(this).outerHeight(sizeIMG);
   	}, function(){
-  		$(this).find('img').attr('src', oldRSC);
+  		//$(this).outerHeight(sizeIMG);
+  		$(this).parents('.items').find('.info').removeClass('active');
+  		$(this).attr('src', oldRSC);
+  	}); 
+
+
+  	$(window).resize(function(){
+  		//$('.catalog .items, .item_page .items').outerHeight($('.catalog .items, .item_page .items').outerWidth()*0.6 + 100);
+  	
+  		recalculation_cart();
+
   	});
 
   	//Click для развертки СЕО-текста
@@ -235,8 +260,14 @@ $('.count .plus').on('click', function() {
   		open_popup($('#checkout'));
   	});
 
-  	//Кнопка закрытия checkout-a
+  	//Кнопка перехода на предыдущий шаг
   	$(document).on('click', '.close_checkout span', function(){
+  		close_popup($('#checkout'));
+  		setTimeout( function() { close_popup($('#cart')); }, 50);
+  	});
+
+  	//Кнопка закрытия всей корзины
+  	$(document).on('click', '.close_checkout .back_step', function(){
   		close_popup($('#checkout'));
   	});
 
@@ -291,11 +322,13 @@ $('.count .plus').on('click', function() {
 			}
  
   	});
+
   	
 //} -- EVENTS
 
 
 function open_popup(obj){
+	$('body').addClass('popup_open');
 
 	if($(obj).attr('id') === "checkout"){
 		$('#cart').find('.close_cart').addClass('active');
@@ -316,7 +349,7 @@ function open_popup(obj){
 		});
 		$(obj).show().delay(10).addClass('active');
 		$(obj).parents('.popup').find('.background-mask').fadeIn(200).addClass('active');
-		$('body').addClass('popup_open');
+	
 		DisableScrollbar();
 
 
@@ -339,12 +372,13 @@ function open_popup(obj){
 		});
 		$(obj).show().delay(10).addClass('active');
 		$(obj).parents('.popup').find('.background-mask').fadeIn(200).addClass('active');
-		$('body').addClass('popup_open');
+		
 		DisableScrollbar();
 	}
 
 }
 function close_popup(obj){
+	$('body').removeClass('popup_open');
 	if($(obj).attr('id') === "main-menu"){
 		setTimeout(function(){
 			$(obj).parents('.popup').removeClass('active');
@@ -386,7 +420,7 @@ function close_popup(obj){
 		return false;
 	} else{
 		EnableScrollbar();
-		$('body').removeClass('popup_open');
+		
 	}
 	if($(obj).attr('id') === "successful_order"){
 		$('.c-hamburger').removeClass('open');
@@ -396,13 +430,75 @@ function close_popup(obj){
 //Перерасчет эелементов в корзине для устрановки/удаление скролла
 function recalculation_cart(){
 	if($(window).width() <= 640){
-		$('#cart .list-items').outerHeight($(window).height() - 57 - 85 - 10);
+		$('#cart').outerHeight($(window).height());
+		setTimeout(function(){
+			$("#cart").mCustomScrollbar({
+				axis: "y"
+			});
+		}, 100);
 	} else{
-		$('#cart .list-items').outerHeight($(window).height() - 57 - 142 - 10);
+		$('#cart .list-items').outerHeight($(window).height());
+		setTimeout(function(){
+			$("#cart .list-items").mCustomScrollbar({
+				axis: "y"
+			});
+		}, 100);
 	}
-	setTimeout(function(){
-		$("#cart .list-items").mCustomScrollbar({
-			axis: "y"
-		});
-	}, 100);
+	
 }
+
+//Ховер на стово "Меню"
+$('header .left p').hover( function(){
+	$('.c-hamburger').addClass('active');
+}, function(){
+	$('.c-hamburger').removeClass('active');
+});
+
+(function($,sr){
+
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          }
+
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  };
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+
+
+// usage:
+$(window).smartresize(function(){
+	if($(window).width() > 480 && $(window).width() < 640){
+		$('#cart').outerHeight($(window).height()-50);
+		setTimeout(function(){
+			$("#cart").mCustomScrollbar({
+				axis: "y"
+			});
+		}, 100);
+	} else{
+		$('#cart').outerHeight(screen.availHeight - 50);
+		setTimeout(function(){
+			$("#cart").mCustomScrollbar({
+				axis: "y"
+			});
+		}, 100);
+	}
+	
+});

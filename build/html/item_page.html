@@ -75,7 +75,7 @@
 				<ul class="other-color-slider" id="other-color-slider">
 					<li>
 						<a href="#" class="items">
-							<img src="img/IMG_9143.png" data-hover="img/IMG_5661_hover.png" alt="photo">
+							<img src="img/IMG_5864.png" data-hover="img/IMG_5661_hover.png" alt="photo">
 							<div class="info">
 								<p class="title">tom ford <span>confessions</span></p>
 								<p class="price">34700 uah</p>
@@ -283,31 +283,15 @@
 	var mainSlider = "";
 
 	var doc_scroll = 0,
-		bottomSlider = 0;
+	bottomSlider = 0;
 
 	$(document).ready(function() {
 
-		if($(window).width() <= 1024){
-			cofM = 90;
-			cofT = 12;
-		}
 
-		heightSlide = (($(window).width()-500)/100)*cofM;
-		heightSlideThumb = (($(window).width()-500)/100)*cofT;
+
 		
-		mainSlider = $('#slider').lightSlider({
-			gallery:true,
-			item:1,
-			vertical:true,
-			vThumbWidth: heightSlideThumb,
-			enableTouch: true,
-			enableDrag: true,
-			freeMove: true,
-			slideMargin:0,
-			adaptiveHeight: true,
-			responsive: true,
-			verticalHeight: heightSlide
-		});
+		createSlider();
+		
 
 		
 
@@ -332,6 +316,14 @@
 	                settings: {
 	                    item:2,
 	                    slideMove:2
+	                  }
+	            },
+
+	            {
+	                breakpoint:480,
+	                settings: {
+	                    item:1,
+	                    slideMove:1
 	                  }
 	            }
 	        ]
@@ -358,43 +350,96 @@
 	  	});
 
 	});
+	
+	var mainSlider = "";
+
+	function createSlider(){
+		if($(window).width() <= 768){
+
+			mainSlider = $('#slider').lightSlider({
+		        gallery:true,
+		        item:1,
+		        loop:true,
+		        thumbItem:5,
+		        slideMargin:0,
+		        enableDrag: false,
+		        currentPagerPosition:'left',   
+		    }); 
+
+		} else if($(window).width() > 768){
+
+
+			
+
+			if($(window).width() <= 1024){
+				cofM = 90;
+				cofT = 12;
+			}
+
+			heightSlide = (($(window).width()-500)/100)*cofM;
+			heightSlideThumb = (($(window).width()-500)/100)*cofT;
+
+			mainSlider = $('#slider').lightSlider({
+				gallery:true,
+				item:1,
+				vertical:true,
+				vThumbWidth: heightSlideThumb,
+				enableTouch: true,
+				enableDrag: true,
+				freeMove: true,
+				thumbMargin: 8,
+				slideMargin:0,
+				thumbItem:5,
+				adaptiveHeight: true,
+				responsive: true,
+				verticalHeight: heightSlide
+			});
+
+
+			$(document).on('scroll',function(e) {
+
+				//Контроль видимости главного слайдера
+				doc_scroll = $(this).scrollTop();
+
+				if(doc_scroll >= bottomSlider - $(window).height() + 80 - $('.random_model').outerHeight() + 300){
+					/*if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
+						$('.btn-filters-block').stop(true).fadeOut();
+					} else{
+						$('.btn-filters-block').stop(true, true).fadeIn();
+					}*/
+					if($(window).width() > 1024){
+						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 80 + 300);
+					} else{
+						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 20 + 335);
+					}
+					
+					$('.item_page .left').addClass('active');
+				} else if(doc_scroll <= bottomSlider){
+					//$('.btn-filters-block').stop(true, true).fadeOut();
+					$('.item_page .left').css('top', 57);
+					$('.item_page .left').removeClass('active');
+				}
+
+			});
+		}
+	}
 
 	$(window).resize(function(){
-		heightSlide = (($(window).width()-500)/100)*65;
-		var newEl = '<li data-thumb="img/IMG_5650.png"><img src="img/IMG_5650.png" /></li>';
-    	$('#slider').prepend(newEl);
-		mainSlider.refresh();
+		mainSlider.destroy();
+		createSlider();
 	});
 
 	$(window).on('load', function(){
 
-	$('.options .tab-other-color').hide();
+		$('.options .tab-other-color').hide();
 
 		if(count * 49 <= $('.lSSlideWrapper').outerHeight()){
 			$('.lSPager').addClass('active');
 		}
 
 		bottomSlider = $('.random_model').offset().top;
-	});
-
-	$(document).on('scroll',function(e) {
-
-		//Контроль видимости главного слайдера
-		doc_scroll = $(this).scrollTop();
-
-		if(doc_scroll >= bottomSlider - $(window).height() + 80 - $('.random_model').outerHeight()){
-			/*if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
-				$('.btn-filters-block').stop(true).fadeOut();
-			} else{
-				$('.btn-filters-block').stop(true, true).fadeIn();
-			}*/
-			$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 80);
-			$('.item_page .left').addClass('active');
-		} else if(doc_scroll <= bottomSlider){
-			//$('.btn-filters-block').stop(true, true).fadeOut();
-			$('.item_page .left').css('top', 57);
-			$('.item_page .left').removeClass('active');
-		}
 
 	});
+
+	
 </script>

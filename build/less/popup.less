@@ -7,7 +7,7 @@
 	width: 100%;
 	height: 100%;
 	background: rgba(21, 21, 21, 0.9);
-	z-index: 3;
+	z-index: 100;
 	display: none;
 
 
@@ -25,7 +25,7 @@
 	top: 0;
 	left: 0;
 	display: none;
-	z-index: 5;
+	z-index: 106;
 	
 
 	&.active{
@@ -41,7 +41,7 @@
 	top: 0;
 	left: 0;
 	transform: translateX(-300px);
-	z-index: 10;
+	z-index: 110;
 	transition: all 0.2s linear 0.1s;
 
 	&.active{
@@ -231,10 +231,12 @@
 
 	max-width: 1024px;
 	max-height: 520px;
+	width: 100%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	z-index: 105;
 
 	&:after{
 		content: "";
@@ -311,7 +313,7 @@
 				margin-top: -5px;
 				li{
 					text-align: center;
-					line-height: 35px;
+					line-height: 40px;
 					img{
 						transition: all 0.1s linear;
 						display: inline-block;
@@ -483,7 +485,7 @@
 	right: 0;
 	height: 49px;
 	line-height: 47px;
-	z-index: 4;
+	z-index: 105;
 
 	&:after{
 		content: "";
@@ -498,6 +500,8 @@
 		width: 166px;
 		float: left;
 		border: 1px solid #fff;
+		border-right: none;
+		border-bottom: none;
 		box-sizing: border-box;
 
 		font-size: @font-size_11px;
@@ -510,7 +514,10 @@
 		border-right: none;
 
 		&:last-child{
-			border-right: 1px solid #fff;
+			border-right: none;
+		}
+		&:first-child{
+			border-left: none;
 		}
 
 		&:hover{
@@ -531,7 +538,7 @@
 	right: 0;
 	background: #fff;
 	transform: translateX(270px);
-	z-index: 9;
+	z-index: 109;
 	transition: all 0.2s linear 0.1s;
 
 	&.active{
@@ -668,7 +675,7 @@
 
 .checkout{
 	width: 270-38px;
-	height: 100%;
+	height: calc(~'100% - 140px');
 	padding: 57+83px 19px;
 	padding-bottom: 0;
 	position: absolute;
@@ -676,14 +683,23 @@
 	right: 0;
 	background: #fff;
 	transform: translateX(270px);
-	z-index: 9;
+	z-index: 109;
 	transition: all 0.2s linear 0.1s;
 
 	&.active{
 		transform: translateX(0px);
 	}
 
-	
+	.submit-block{
+		background: #f7f7f7;
+		position: absolute;
+		right: 0px;
+		bottom: 0;
+		padding: 33px 0;	
+		width: 100%;	
+		text-align: center;
+		border-top: 1px solid #ebebeb;
+	}
 
 	.cart-title{
 		color: #9f9f9f;
@@ -708,6 +724,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	z-index: 109;
 	background: url(../img/successful_order.png) no-repeat center center #eaf6ff;
 	background-size: contain;
 }
@@ -720,7 +737,7 @@
 	top: 0;
 	left: 0;
 	background: #151515;
-	z-index: 6;
+	z-index: 106;
 
 
 	.close{
@@ -749,7 +766,7 @@
 }
 
 .details-sale{
-	z-index: 5;
+	z-index: 105;
 	position: absolute;
 	top: calc(~'50% + 25px');
 	transform: translateY(-50%);

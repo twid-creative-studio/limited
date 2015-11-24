@@ -26,10 +26,20 @@
 		.item{
 			background: #eaf6ff;
 			margin-bottom: 1px;
-			width: 631px;
-			height: 384px;
+			width: calc(~'50% - 1px');
+			height: 450px;
 			text-align: center;
 			cursor: pointer;
+			position: relative;
+
+
+			.va{
+				position: absolute;
+				width: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
 
 			.title{
 				font-weight: 900;
@@ -37,8 +47,9 @@
 				font-size: @font-size_45px;
 				letter-spacing: 45*50/1000px;
 				text-transform: uppercase;
-				padding: 0 60px;
+				padding: 0 30px;
 				line-height: 50px;
+				word-wrap: break-word;
 			}
 			img{
 				max-width: 100%;

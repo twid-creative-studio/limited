@@ -12,7 +12,6 @@
 	.left{
 		width: calc(~'100% - 500px');
 		height: calc(~"100% - 57px");
-		border-right: 1px solid #ebebeb;
 		position: fixed;
 		top: 57px;
 
@@ -51,6 +50,7 @@
 			.lSPager{
 				position: absolute !important;
 				display: block;
+				height: auto !important;
 				margin-left: 10px !important;
 				-webkit-backface-visibility: hidden !important;
 				transform: translate(0, 0, 0) !important;
@@ -60,14 +60,13 @@
 					border-radius: 0 !important;
 					position: relative;
 					border: 1px solid #ebebeb;
-					border-top: none;
-					border-bottom: none;
 					text-align: center;
 					overflow: visible !important;
 					box-sizing: border-box;
 					-webkit-backface-visibility: hidden !important;
 					transform: translate(0, 0, 0) !important;
 					-webkit-font-smoothing: antialiased !important;
+					height: auto !important;
 
 					/*&:before{
 						content: "";
@@ -116,6 +115,7 @@
 	.right{
 		width: 500px;
 		box-sizing: border-box;
+		border-left: 1px solid #ebebeb;
 		float: right;
 		
 		.item_header{
@@ -467,24 +467,19 @@
 					margin-left: 1px;
 					overflow: hidden;
 
-
+					.lSAction > a{
+						opacity: 1 !important;
+					}
 
 					.items{
 						display: block;
 						text-align: center;
 						box-sizing: border-box;
 						padding: 40px 0;
-
 						&:hover{
-							.info{
-								background: url(../img/ui/arrow_hover@2x.png) no-repeat center center;
-								background-size: 115px;
-								p
-								{
-									opacity: 0;
-								}
-							}
+							cursor: default;
 						}
+
 
 						&:nth-of-type(2n){
 							border-right: none;
@@ -493,17 +488,28 @@
 						img{
 							width: 80%;
 							max-height: 326px;
-							z-index: -1;
 							position: relative;
 							-webkit-perspective: 700;
 							transition: all 0.3s linear;
+							&:hover{
+								cursor: pointer;
+							}
 						}
 						
 						.info{
 							position: absolute;
-							bottom: 3 0px;
+							bottom: 30px;
 							width: 100%;
 							text-align: center;
+
+							&.active{
+								background: url(../img/ui/arrow_hover@2x.png) no-repeat center center;
+								background-size: 115px;
+								p
+								{
+									opacity: 0;
+								}
+							}
 
 							.title{
 								margin: 0;
@@ -513,6 +519,7 @@
 								text-transform: uppercase;
 								font-size: @font-size_14px;
 								letter-spacing: 14*200/1000px;
+								margin-bottom: 5px;
 
 								span{
 									color: #9f9f9f;
@@ -735,16 +742,7 @@
 				box-sizing: border-box;
 				padding: 20px 0;
 
-				&:hover{
-					.info{
-						background: url(../img/ui/arrow_hover@2x.png) no-repeat center center;
-						background-size: 115px;
-						p
-						{
-							opacity: 0;
-						}
-					}
-				}
+			
 
 				&:nth-of-type(2n){
 					border-right: none;
@@ -753,7 +751,6 @@
 				img{
 					width: 80%;
 					max-height: 326px;
-					z-index: -1;
 					position: relative;
 					-webkit-perspective: 700;
 					transition: all 0.3s linear;
@@ -765,6 +762,15 @@
 					width: 100%;
 					text-align: center;
 
+					&.active{
+						background: url(../img/ui/arrow_hover@2x.png) no-repeat center center;
+						background-size: 115px;
+						p
+						{
+							opacity: 0;
+						}
+					}
+
 					.title{
 						margin: 0;
 						padding: 0;
@@ -773,6 +779,7 @@
 						text-transform: uppercase;
 						font-size: @font-size_14px;
 						letter-spacing: 14*200/1000px;
+						margin-bottom: 5px;
 
 						span{
 							color: #9f9f9f;

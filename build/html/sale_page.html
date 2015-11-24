@@ -5,28 +5,40 @@
 
 	<div class="sale-list">
 		<div class="item" data-details="details-sale_1">
-			<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
-			<p class="title">скидочная карта</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
+				<p class="title">скидочная карта</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_3">
-			<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
-			<p class="title">скидка на две пары очков</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
+				<p class="title">скидка на две пары очков</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_3">
-			<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
-			<p class="title">скидки именинникам</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
+				<p class="title">скидки именинникам</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_4">
-			<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
-			<p class="title">secret magic day</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
+				<p class="title">secret magic day</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_5">
-			<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
-			<p class="title">magic day</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
+				<p class="title">magic day</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_6">
-			<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
-			<p class="title">бесплатная доставка</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
+				<p class="title">бесплатная доставка</p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -220,17 +232,11 @@
                 }
             });
         });
-        setTimeout(function(){
-            $grid.isotope('layout');
-        }, 1000);
+       
+        $grid.isotope('layout');
     }
-    $(window).load(function(){
+    $(document).ready(function(){
         isotope_();
-    });
-    $( window ).resize(function() {
-        isotope_();
-    });
-
-    
+    });    
 
 </script>

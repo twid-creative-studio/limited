@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,  user-scalable=0; ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
@@ -40,28 +40,40 @@
 
 	<div class="sale-list">
 		<div class="item" data-details="details-sale_1">
-			<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
-			<p class="title">скидочная карта</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_1.png" alt="photo"></div>
+				<p class="title">скидочная карта</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_3">
-			<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
-			<p class="title">скидка на две пары очков</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_2.png" alt="photo"></div>
+				<p class="title">скидка на две пары очков</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_3">
-			<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
-			<p class="title">скидки именинникам</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_3.png" alt="photo"></div>
+				<p class="title">скидки именинникам</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_4">
-			<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
-			<p class="title">secret magic day</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_4.png" alt="photo"></div>
+				<p class="title">secret magic day</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_5">
-			<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
-			<p class="title">magic day</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_5.png" alt="photo"></div>
+				<p class="title">magic day</p>
+			</div>
 		</div>
 		<div class="item" data-details="details-sale_6">
-			<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
-			<p class="title">бесплатная доставка</p>
+			<div class="va">
+				<div class="photo"><img src="img/sale_6.png" alt="photo"></div>
+				<p class="title">бесплатная доставка</p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -419,7 +431,11 @@
 
 <!--Checkout-->
 <div class="popup">
-	<div class="close_checkout"><span></span></div>
+	<div class="close_checkout">
+		<span></span>
+		<div class="back_step"></div>
+	</div>
+
 
 	<div class="checkout popup-inner" id="checkout">
 		
@@ -458,10 +474,13 @@
 					 </div>
 				</div>
 			</p>
-
+			
 		</form>
+		<div class="submit-block">
+				<button type="submit" class="btn-submit">заказать</button>
+			</div>
 	</div>
-	<button type="submit" class="btn-submit">заказать</button>
+	
 	<div class="background-mask"></div>
 </div>
 
@@ -676,17 +695,11 @@
                 }
             });
         });
-        setTimeout(function(){
-            $grid.isotope('layout');
-        }, 1000);
+       
+        $grid.isotope('layout');
     }
-    $(window).load(function(){
+    $(document).ready(function(){
         isotope_();
-    });
-    $( window ).resize(function() {
-        isotope_();
-    });
-
-    
+    });    
 
 </script>
