@@ -220,6 +220,9 @@
 		cofW = 1;
 
 	$(window).resize(function () {
+
+		catalog_box = $('#catalog').offset().top;
+		
 		mainSlider.destroy();
 
 		if($(window).width() >= 1024){

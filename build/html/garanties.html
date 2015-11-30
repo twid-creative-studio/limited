@@ -52,4 +52,18 @@
 //= module/footer.html
 
 <script>
+	$(window).on('load', function () {
+		
+	   var list = $(".garanties .bottom div");
+	   var max = 0;
+	   list.each(function(){
+	       if($(this).outerHeight()>max){
+	           max = $(this).outerHeight();
+	       }
+	   });
+	   list.each(function(){
+	       $(this).css("height", max);
+	   });
+
+	});
 </script>

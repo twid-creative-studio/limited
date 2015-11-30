@@ -506,3 +506,21 @@
 
 </body>
 </html>
+
+
+<script>
+	$(window).on('load', function () {
+		
+	   var list = $(".delivery .items");
+	   var max = 0;
+	   list.each(function(){
+	       if($(this).outerHeight()>max){
+	           max = $(this).outerHeight();
+	       }
+	   });
+	   list.each(function(){
+	       $(this).css("height", max);
+	   });
+
+	});
+</script>

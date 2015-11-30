@@ -5,7 +5,7 @@ function DisableScrollbar()
     var new_width = old_width;
 
     // ID's \ class to change
-    var items_to_change = "body, header";
+    var items_to_change = "body";
 
 
     $('body').css('overflow','hidden');

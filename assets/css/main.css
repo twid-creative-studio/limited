@@ -692,9 +692,6 @@ header .right .btn-cart:hover span:before {
 .control-panel div:last-child {
   border-right: none;
 }
-.control-panel div:first-child {
-  border-left: none;
-}
 .control-panel div:hover {
   cursor: pointer;
   background: #fff;
@@ -4158,6 +4155,14 @@ textarea {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff58ca', endColorstr='#75e5fe', GradientType=1);
   /* IE6-9 */
 }
+.sale_page .sale-list:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 .sale_page .sale-list .item {
   background: #eaf6ff;
   margin-bottom: 1px;
@@ -4166,6 +4171,11 @@ textarea {
   text-align: center;
   cursor: pointer;
   position: relative;
+  float: left;
+  margin-right: 1px;
+}
+.sale_page .sale-list .item:nth-child(2n) {
+  margin-right: 0;
 }
 .sale_page .sale-list .item .va {
   position: absolute;
@@ -4483,12 +4493,119 @@ textarea {
   .seo-text .container {
     max-height: 41px;
   }
+  .successful_order {
+    background: url(../img/successful_order.png) no-repeat center bottom #eaf6ff;
+    background-size: contain;
+  }
   .blog_page .posts-list .item {
     width: 33.25% !important;
     -webkit-backface-visibility: hidden;
   }
   .blog_page .pagination ul li {
     width: 12.45%;
+  }
+  .line.showroom:before,
+  .line.delivery:before {
+    display: none;
+  }
+  .c-hamburger:hover {
+    cursor: pointer;
+    background: #fff;
+  }
+  .c-hamburger:hover span:before,
+  .c-hamburger:hover span:after,
+  .c-hamburger:hover span {
+    background: #151515;
+  }
+  .c-hamburger--htx.is-active:hover {
+    cursor: pointer;
+    background: transparent;
+  }
+  .c-hamburger--htx.is-active:hover span:before,
+  .c-hamburger--htx.is-active:hover span:after {
+    background: #fff;
+  }
+  .main-slider .lSAction > .lSNext:hover {
+    background: url(../img/ui/mainslider_next.png) no-repeat center center !important;
+    background-size: contain !important;
+  }
+  .main-slider .lSAction > .lSNext:active {
+    background: url(../img/ui/mainslider_next_hover.png) no-repeat center center !important;
+    background-size: contain !important;
+  }
+  .main-slider .lSAction > .lSPrev:hover {
+    background: url(../img/ui/mainslider_next.png) no-repeat center center !important;
+    background-size: contain !important;
+  }
+  .main-slider .lSAction > .lSPrev:active {
+    background: url(../img/ui/mainslider_next_hover.png) no-repeat center center !important;
+    background-size: contain !important;
+  }
+  .control-panel div:hover {
+    cursor: pointer;
+    background: #151515;
+    color: #fff;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+  .control-panel div:active {
+    cursor: pointer;
+    background: #fff;
+    color: #151515;
+    border-top-color: #151515;
+    border-bottom-color: #151515;
+  }
+  .btn-filters-block .bth_women:hover {
+    cursor: pointer;
+    background-image: none;
+    background: #fff;
+    color: #ffffff;
+  }
+  .btn-filters-block .bth_women:active {
+    cursor: pointer;
+    background: url(../img/ui/women_icon_filter@2x.png) no-repeat center center;
+    color: rgba(255, 255, 255, 0);
+    background-size: 19px;
+  }
+  .btn-filters-block .btn_men:hover {
+    cursor: pointer;
+    background: #fff;
+    background-image: none;
+    color: #ffffff;
+  }
+  .btn-filters-block .btn_men:active {
+    cursor: pointer;
+    background: url(../img/ui/men_icon_filter@2x.png) no-repeat center center;
+    background-size: 19px;
+    color: rgba(255, 255, 255, 0);
+  }
+  .btn-checkout:hover {
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+  }
+  .btn-checkout:active {
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+  }
+  .btn-scrolldown:hover {
+    cursor: pointer;
+    background: transparent;
+    color: #151515;
+  }
+  .btn-scrolldown:hover span:after {
+    background: url(../img/ui/scrolldown_triger@2x.png) no-repeat center center;
+    background-size: contain;
+  }
+  .btn-scrolldown:active {
+    cursor: pointer;
+    background: #151515;
+    color: #fff;
+  }
+  .btn-scrolldown:active span:after {
+    background: url(../img/ui/scrolldown_triger_white@2x.png) no-repeat center center;
+    background-size: contain;
   }
   /*.sale_page{
 		.sale-list{
@@ -4499,6 +4616,9 @@ textarea {
 	}*/
   .index .pagination ul li {
     width: 12.45%;
+  }
+  .index .pagination ul li.pagination-next span:after {
+    margin-left: 6px;
   }
   .index .items:nth-of-type(2n) {
     border-right: none;
@@ -4555,10 +4675,11 @@ textarea {
     bottom: -3% !important;
   }
   .main-filter {
-    left: 0;
-    -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 75%;
   }
   .item_page .left {
     width: calc(100% - 330px);
@@ -4671,6 +4792,20 @@ textarea {
     padding: 0 60px;
     width: calc(100% - 120px);
   }
+  .exchange .top .left,
+  .garanties .top .left,
+  .exchange .top .right,
+  .garanties .top .right {
+    width: 50%;
+    max-width: 600px;
+  }
+  .exchange .top .right,
+  .garanties .top .right {
+    width: calc(50% - 120px);
+  }
+  .cart .list-items li:last-child {
+    margin-bottom: 210px;
+  }
 }
 @media only screen and (max-width: 992px) {
   .blog_page .posts-list .item {
@@ -4724,8 +4859,8 @@ textarea {
     position: relative !important;
   }
   .item_page .left .lSSlideOuter {
-    padding-right: 0 !important;
-    padding-left: 0px !important;
+    padding-right: 50px !important;
+    padding-left: 50px !important;
     top: 0%;
     -webkit-transform: translateY(0%);
         -ms-transform: translateY(0%);
@@ -4771,11 +4906,15 @@ textarea {
     float: none;
     top: inherit;
   }
+  .item_page .right .free-delivery span {
+    line-height: 40px;
+    font-size: 28px;
+  }
   .item_page .right .free-delivery span:before {
     left: -30px;
   }
   .item_page .right .by-block {
-    padding: 20px;
+    padding: 20px 50px;
     padding-top: 30px;
   }
   .item_page .right .by-block:after {
@@ -4803,13 +4942,13 @@ textarea {
     margin-top: 30px;
   }
   .item_page .right .description {
-    padding: 20px;
+    padding: 20px 50px;
   }
   .item_page .right .description .text {
     letter-spacing: 1.6px;
   }
   .item_page .right .size-block {
-    padding: 20px;
+    padding: 20px 50px;
   }
   .item_page .right .size-block ul {
     padding: 0 20px;
@@ -4817,14 +4956,18 @@ textarea {
   .item_page .right .size-block ul li {
     margin-bottom: 0;
   }
+  .item_page .right .options {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
   .item_page .right .options .title:first-child {
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .item_page .right .options .tab-block {
     margin-top: 10px;
   }
   .item_page .right .options .tab-block.tab-option {
-    padding: 0 20px;
+    padding: 0px;
   }
   .item_page .right .options .tab-block ul li:before {
     height: 2px !important;
@@ -4842,6 +4985,9 @@ textarea {
   }
   .item_page .right .options .tab-block.tab-other-color .items img {
     width: auto !important;
+  }
+  .item_page .right .link-showroom {
+    height: 200px;
   }
   .delivery h1 {
     line-height: 70px;
@@ -4917,6 +5063,12 @@ textarea {
   }
   .showroom .right .info .phone {
     margin-bottom: 40px !important;
+  }
+  .showroom .right .desc {
+    width: calc(200% - 200px);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
   .sale_page h1 {
     line-height: 70px;
@@ -5445,6 +5597,23 @@ textarea {
   .control-panel div {
     width: 33.3%;
     cursor: pointer;
+  }
+  .item_page .left .lSSlideOuter {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .item_page .right .by-block,
+  .item_page .right .description,
+  .item_page .right .size-block {
+    padding: 20px;
+  }
+  .item_page .right .options {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .item_page .right .free-delivery span {
+    line-height: 20px;
+    font-size: 16px;
   }
   .item_page .right .free-delivery span:before {
     left: 30px;

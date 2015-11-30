@@ -23,6 +23,14 @@
 	}
 	
 	.sale-list{
+		&:after{
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
 		.item{
 			background: #eaf6ff;
 			margin-bottom: 1px;
@@ -31,6 +39,12 @@
 			text-align: center;
 			cursor: pointer;
 			position: relative;
+			float: left;
+			margin-right: 1px;
+
+			&:nth-child(2n){
+				margin-right: 0;
+			}
 
 
 			.va{

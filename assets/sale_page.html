@@ -675,31 +675,3 @@
 	</div>
 	<div class="background-mask"></div>
 </div>
-
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-
-<script>
- // init Isotope
-    function isotope_(){
-        var $grid = $('.sale-list').imagesLoaded( function() {
-            // init Isotope after all images have loaded
-            $grid.isotope({
-                itemSelector: '.item',
-                percentPosition: true,
-                isResizeBound: true,
-                masonry: {
-                    // use element for option
-                    columnWidth: '.item',
-                    "gutter": 1
-                }
-            });
-        });
-       
-        $grid.isotope('layout');
-    }
-    $(document).ready(function(){
-        isotope_();
-    });    
-
-</script>

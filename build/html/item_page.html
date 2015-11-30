@@ -307,15 +307,17 @@
 	                breakpoint:1025,
 	                settings: {
 	                    item:3,
-	                    slideMove:3
+	                    slideMove:3,
+	                    slideMargin: 25
 	                  }
 	            },
 
 	            {
-	                breakpoint:768,
+	                breakpoint:769,
 	                settings: {
 	                    item:2,
-	                    slideMove:2
+	                    slideMove:2,
+	                    slideMargin: 25
 	                  }
 	            },
 
@@ -395,13 +397,16 @@
 				verticalHeight: heightSlide
 			});
 
+			var random = $('.random_model').offset();
 
 			$(document).on('scroll',function(e) {
 
 				//Контроль видимости главного слайдера
 				doc_scroll = $(this).scrollTop();
 
-				if(doc_scroll >= bottomSlider - $(window).height() + 80 - $('.random_model').outerHeight() + 300){
+				console.log(random.top-$(window).height(), doc_scroll);
+				if(doc_scroll >= random.top-$(window).height()-80){
+
 					/*if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
 						$('.btn-filters-block').stop(true).fadeOut();
 					} else{
@@ -410,11 +415,11 @@
 					if($(window).width() > 1024){
 						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 80 + 300);
 					} else{
-						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 20 + 335);
+						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 20 + 285);
 					}
 					
 					$('.item_page .left').addClass('active');
-				} else if(doc_scroll <= bottomSlider){
+				} else if(doc_scroll <= random.top-$(window).height()-80){
 					//$('.btn-filters-block').stop(true, true).fadeOut();
 					$('.item_page .left').css('top', 57);
 					$('.item_page .left').removeClass('active');
