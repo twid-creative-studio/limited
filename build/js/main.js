@@ -25,7 +25,6 @@ $(window).on('load', function () {
 	$(".main-filter .filter-list.brands ul").mCustomScrollbar({
 		axis: "y"
 	});
-
 	
 
 
@@ -37,6 +36,10 @@ $(window).on('load', function () {
 			axis: "y",
 			scrollbarPosition: "outside"
 		});
+		$("#main-menu .menu").outerHeight($(window).height() - 55);
+		$("#main-menu .menu").mCustomScrollbar({
+			axis: "y"
+		});
 	} else if( $(window).width() >= 640 ){
 		$('.checkout form').outerHeight($(window).height() - 109 - 140 );
 
@@ -44,7 +47,7 @@ $(window).on('load', function () {
 			axis: "y",
 			scrollbarPosition: "outside"
 		});
-	}
+	}	
 	
 });
 
@@ -200,8 +203,23 @@ $('.count .plus').on('click', function() {
 
   	$(window).resize(function(){
   		//$('.catalog .items, .item_page .items').outerHeight($('.catalog .items, .item_page .items').outerWidth()*0.6 + 100);
-  	
+  		
+  		sliderCart.destroy();
   		recalculation_cart();
+
+  		$("#main-menu .menu").outerHeight($(window).height() - 55);
+		$("#main-menu .menu").mCustomScrollbar({
+			axis: "y"
+		});
+
+		setTimeout(function(){
+	        
+        	$('.details-sale').outerHeight($(window).height() - 75);
+		    $('.details-sale').mCustomScrollbar({
+				axis: "y"
+			});
+	        
+		}, 1);
 
   	});
 
@@ -355,13 +373,13 @@ function open_popup(obj){
 
 
 		setTimeout(function(){
-	        if($(obj).outerHeight() >= $(window).height() - 100){
-	        	$(obj).outerHeight($(window).height() - 100);
-			    $(obj).mCustomScrollbar({
+	        if($('.details-sale').outerHeight() >= $(window).height() - 100){
+	        	$('.details-sale').outerHeight($(window).height() - 100);
+			    $('.details-sale').mCustomScrollbar({
 					axis: "y"
 				});
 	        }
-		}, 1);
+		}, 100);
 		
 	} else{
 		if($(obj).attr('id') === "successful_order"){
@@ -428,16 +446,32 @@ function close_popup(obj){
 	}
 }
 
+var sliderCart = "";
+
 //Перерасчет эелементов в корзине для устрановки/удаление скролла
 function recalculation_cart(){
-	if($(window).width() <= 640){
+	if($(window).width() < 768){
 		$('#cart').outerHeight($(window).height());
-		setTimeout(function(){
-			$("#cart").mCustomScrollbar({
-				axis: "y"
-			});
-		}, 100);
-	} else{
+		if($(window).width() >= 480){
+			$('#cart .list-items li').outerHeight($(window).height() - 153);
+		} else {
+			$('#cart .list-items li').outerHeight($(window).height() - 173);
+		}
+
+		sliderCart = $('#cart .list-items').lightSlider({
+			gallery: false,
+			item:1,
+			vertical:false,
+			enableTouch: true,
+			enableDrag: true,
+			freeMove: true,
+			pager: false,
+			slideMargin: 0
+		});
+
+		//setTimeout( function() { $('#cart .lSSlideOuter').outerHeight($(window).height() - 57 - 116); }, 100);
+
+	} else if($(window).width() >= 768) {
 		$('#cart .list-items').outerHeight($(window).height());
 		setTimeout(function(){
 			$("#cart .list-items").mCustomScrollbar({

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Limited|Главная</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/lightslider.css">
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
@@ -559,7 +560,7 @@
 	<div class="background-mask"></div>
 </div>
 
-<!--Cart-->
+<!--Cart--> 
 <div class="popup">
 	<div class="cart popup-inner" id="cart">
 		<div class="close_cart"><span></span></div>
@@ -722,19 +723,22 @@
 	<div class="background-mask"></div>
 </div>
 
+
+
+
 <!--scripts-->
 <script src="js/jquery-1.9.1.min.js"></script>
 <script src="js/SmoothScroll.js"></script>
 <script src="js/jquery.mCustomScrollbar.js"></script>
 <script src="js/jquery.autosize.js"></script>
 <script src="js/disableScrollbar.js"></script>
+<script src="js/lightslider.js"></script>
 <script src="js/main.js"></script>
 
 </body>
 </html>
 
-<link rel="stylesheet" href="css/lightslider.css">
-<script src="js/lightslider.js"></script>
+
 <script>
 	var count = $('.main-slider li').length;
 	
@@ -819,6 +823,7 @@
 	var mainSlider = "";
 
 	function createSlider(){
+		var random = $('.random_model').offset();
 		if($(window).width() <= 768){
 
 			mainSlider = $('#slider').lightSlider({
@@ -830,6 +835,14 @@
 		        enableDrag: false,
 		        currentPagerPosition:'left',   
 		    }); 
+
+		    $(document).on('scroll',function(e) {
+
+	
+				$('.item_page .left').css('top', 0);
+				
+
+			});
 
 		} else if($(window).width() > 768){
 
@@ -859,8 +872,6 @@
 				responsive: true,
 				verticalHeight: heightSlide
 			});
-
-			var random = $('.random_model').offset();
 
 			$(document).on('scroll',function(e) {
 

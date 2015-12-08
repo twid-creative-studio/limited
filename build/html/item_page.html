@@ -270,8 +270,7 @@
 
 //= module/footer.html
 
-<link rel="stylesheet" href="css/lightslider.css">
-<script src="js/lightslider.js"></script>
+
 <script>
 	var count = $('.main-slider li').length;
 	
@@ -356,6 +355,7 @@
 	var mainSlider = "";
 
 	function createSlider(){
+		var random = $('.random_model').offset();
 		if($(window).width() <= 768){
 
 			mainSlider = $('#slider').lightSlider({
@@ -367,6 +367,14 @@
 		        enableDrag: false,
 		        currentPagerPosition:'left',   
 		    }); 
+
+		    $(document).on('scroll',function(e) {
+
+	
+				$('.item_page .left').css('top', 0);
+				
+
+			});
 
 		} else if($(window).width() > 768){
 
@@ -396,8 +404,6 @@
 				responsive: true,
 				verticalHeight: heightSlide
 			});
-
-			var random = $('.random_model').offset();
 
 			$(document).on('scroll',function(e) {
 
