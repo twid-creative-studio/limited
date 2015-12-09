@@ -1,8 +1,6 @@
 var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
 
-
-
 $(window).on('load', function () {
 
 	if(isFirefox){
@@ -25,8 +23,6 @@ $(window).on('load', function () {
 	$(".main-filter .filter-list.brands ul").mCustomScrollbar({
 		axis: "y"
 	});
-	
-
 
 	//textarea
 	$('textarea').autosize();
@@ -48,11 +44,7 @@ $(window).on('load', function () {
 			scrollbarPosition: "outside"
 		});
 	}	
-	
 });
-
-
-
 
 $(document).ready(function(){
 	$('a.anchor').bind("click", function(e){
@@ -70,9 +62,7 @@ $(document).ready(function(){
 	    });
 
 	    return false;
-
 	});
-
 });
 
 //Disable scroll
@@ -84,8 +74,6 @@ document.ontouchmove = function(e){
     }
 };
 
-
-
 //Dropdown
 $(document).on('click','.cuslom_dropdown', function(){
     $(this).toggleClass('active');
@@ -94,7 +82,6 @@ $(document).on('click','.cuslom_dropdown', function(){
 $(".cuslom_dropdown li a").click(function(){
     $(this).parents('.cuslom_dropdown').find('ul > li:first-child > a').text($(this).text()); 
     $(this).parents('.cuslom_dropdown').find('ul > li:first-child > a').attr('class',$(this).attr('class')); 
-
 });
 
 //Placeholder
@@ -396,6 +383,7 @@ function open_popup(obj){
 	}
 
 }
+
 function close_popup(obj){
 	$('body').removeClass('popup_open');
 	if($(obj).attr('id') === "main-menu"){
@@ -479,7 +467,6 @@ function recalculation_cart(){
 			});
 		}, 100);
 	}
-	
 }
 
 //Ховер на стово "Меню"

@@ -42,7 +42,6 @@
    var limited = {
        url: 'img/ui/map-marker.svg',
        size: new google.maps.Size(37, 51),
-       //scaledSize: new google.maps.Size(32, 43),
        origin: new google.maps.Point(0, 0),
        anchor: new google.maps.Point(17, 49)
    };
@@ -121,7 +120,6 @@
 
     var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
     function render_map( $el ) {
-       // add markers
 
        // vars
        var args = {
@@ -135,8 +133,6 @@
 
        // create marker
        var marker_office = new google.maps.Marker({position:latlng, map:map, icon:limited});
-
-       //map.panBy(-130,0);
 
        //Associate the styled map with the MapTypeId and set it to display.
 		map.mapTypes.set('map_style', styledMap);

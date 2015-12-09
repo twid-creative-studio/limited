@@ -754,13 +754,7 @@
 
 	$(document).ready(function() {
 
-
-
-		
 		createSlider();
-		
-
-		
 
 		$("#random-model-slider").lightSlider({
 			item: 4,
@@ -797,7 +791,6 @@
 	            }
 	        ]
 		});
-
 
 		//Смена табов в блоке параметров на странице товара
 	  	$(document).on('click', '.options .title', function(){
@@ -837,17 +830,10 @@
 		    }); 
 
 		    $(document).on('scroll',function(e) {
-
-	
 				$('.item_page .left').css('top', 0);
-				
-
 			});
 
 		} else if($(window).width() > 768){
-
-
-			
 
 			if($(window).width() <= 1024){
 				cofM = 90;
@@ -881,11 +867,6 @@
 				console.log(random.top-$(window).height(), doc_scroll);
 				if(doc_scroll >= random.top-$(window).height()-80){
 
-					/*if(doc_scroll + $(window).height() - 57 >= catalog_box + $('#catalog').outerHeight() - 57){
-						$('.btn-filters-block').stop(true).fadeOut();
-					} else{
-						$('.btn-filters-block').stop(true, true).fadeIn();
-					}*/
 					if($(window).width() > 1024){
 						$('.item_page .left').css('top', bottomSlider - $('.item_page .left').outerHeight() - $('.random_model').outerHeight() + 80 + 300);
 					} else{
@@ -894,7 +875,6 @@
 					
 					$('.item_page .left').addClass('active');
 				} else if(doc_scroll <= random.top-$(window).height()-80){
-					//$('.btn-filters-block').stop(true, true).fadeOut();
 					$('.item_page .left').css('top', 57);
 					$('.item_page .left').removeClass('active');
 				}
@@ -920,5 +900,4 @@
 
 	});
 
-	
 </script>

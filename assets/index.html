@@ -728,11 +728,6 @@
 		} else{
 			cof = winHeight/itemHeught;
 		}
-	    /*if(winHeight > itemHeught){
-			cof = winHeight/itemHeught;
-		} else if(winHeight < itemHeught){
-			cof = 1 - ((itemHeught* 0.9/winHeight)-1 * 0.85);
-		}*/
 
 		if(winWidth > 640){
 			cofW = winWidth/640;
@@ -745,11 +740,6 @@
 		
 		$('.main-slider .item > a.is-scale').css('transform', 'scale(' + cof + ') translateY(-' + (50 - (50 * (cof-1))) + '%)');
 
-		
-
 	}
-
-
-	
 
 </script>
